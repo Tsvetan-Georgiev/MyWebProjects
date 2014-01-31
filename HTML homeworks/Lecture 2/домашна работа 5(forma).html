@@ -1,0 +1,138 @@
+<!doctype html>
+<head>
+	<meta charset="UTF8">
+	<title>Домашна работа 5</title>
+</head>
+<body>
+	<form>
+	<table border="1" cellspacing="0">
+		<tr>
+			<td align="right">
+				<label for="name"><b>Last Name</b> </label>
+			</td>
+			<td colspan="3">
+				<input type="text" name="name" id="name" value="Nakov">
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				<label for="lname"><b>First Name </b> </label>
+			</td>
+			<td colspan="3">
+				<input type="text" name="lname" id="lname" value="Svetlin" >
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				<label for="address"><b>Address</b> </label>
+			</td>
+			<td colspan="3">
+				<textarea name="address" id="address" cols="30" rows="5" maxlength="50">17 Hristo Botev Str.floor 3, apt. 12</textarea>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				<label for="city"><b>City</b></label>
+			</td>
+			<td>
+				<input type="text" name="city" id="city" value="Kaspichan">
+					<td  align="right">
+						<label for="state"><b> State </b></label>
+					</td>
+						<td>
+							<input type="text" id="state" name="state"  size="5">
+						</td>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				<label for="zipcode"><b>Zip/Postal Code</b> </label>
+			</td>
+			<td colspan="3" align="left">
+				<input type="text" name="zipcode" id="zipcode" size="7" value="9325">
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				<label for="country"><b>Country</b> </label>
+			</td>
+			<td colspan="3">
+				<select name="chooseCountry" id="country" >
+					<option value="Bulgaria">Bulgaria</option>
+					<option value="Germany">Germany</option>
+					<option value="France">France</option>
+					<option value="England">England</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td align="right"
+				<label for="phone"><b>Phone (country code</label>,<br><label for="phoneArea">area code</label>, <label for="phoneNumber">number</label>)</b> 
+			</td>
+			<td colspan="3">
+				(+
+				<input type="text" name="phone" id="phone" size="6" value="359">
+				)
+				<input type="text" name="phonearea" id="phoneArea" size="6" value="88">
+				-
+				<input type="text" name="phonearea" id="phoneNumber" size="15" value="8334343">
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				<label for="email"><b>E-mail</b></label>
+			</td>
+			<td colspan="3">
+				<input type="text" name="email" id="email" value="nakov@kaspichan.org">
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				<label for="Bdate"><b>Birth date</b></label>
+			</td>
+			<td colspan="3">
+				Month
+				<input type="text" name="Bdate" id="Bdate" size="2" value="06">
+				Day
+				<input type="text" name="Bdate" size="2" value="14">
+				Year (4 digit)
+				<input type="text" name="Bdate" size="4" value="1980">
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				<label for="gender"><b>Gender</b></label>
+			</td>
+			<td colspan="3" align="left">
+				<select name="gender" id="gender">
+				<option value="Male">Male</option>
+				<option value="Female">Female</option>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				<label for="Sdate"><b>Startin date</b></label>
+			</td>
+			<td colspan="3">
+				<input type="radio" value="Spring 2006" name="Sdate" id="Sdate" checked="checked"/>Spring 2006
+				<input type="radio" value="Summer 2006">Summer 2006
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				<label for="CommQuest"><b>Comments/Questions</b></label>
+			</td>
+			<td colspan="3">
+				<textarea name="CommQuest" id="CommQuest" cols="30" rows="7">Please send me more information about the lodging.</textarea>
+			</td>
+		</tr>
+		<tr bgcolor="lightgreen" align="center">
+			<td colspan="4">
+				<input type="submit" name="submit" id="submit">
+				<input type="reset" name="reset" id="reset" value="Clear This Form">
+			</td>
+		</tr>
+	</table>
+	</form>
+</body>
+</html>
