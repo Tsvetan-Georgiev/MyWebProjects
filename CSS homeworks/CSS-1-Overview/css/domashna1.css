@@ -1,0 +1,54 @@
+body{
+	background-color:gray;
+	line-height: 35px;
+}
+table {
+	font-style: italic;
+	font-family: verdana, arial;
+	color:white;
+}
+#norm{
+	font-style: normal;
+	color:lightgray;
+	position: relative;
+	left: 40px;
+}
+th{
+	font-size: 25px;
+	font-style: normal;
+	color:darkgray;
+	font-weight:normal;
+	text-align: left;
+	line-height: 35px;
+	position: relative;
+	top: -5px;
+}
+img{
+	margin-top: 1px;
+	max-width: 16px;
+	max-height: 16px;
+	position: relative;
+	top: 0px;
+	left:0px;
+}
+.yell{
+	color:#F7F8A9;
+}
+#upsite{
+	font-style: normal;
+	color: red;
+	position: relative;
+	top: -20px;
+	left: 40px;
+
+}
+#heigh{
+	line-height: 10px;
+	position: relative;
+	left: -5px;
+	top: 0px;
+}
+.orange{
+	color:#ff8c00;
+	font-weight: bold;
+}

@@ -1,0 +1,57 @@
+ div.navi ul {
+ 	min-height: 50px;
+ }
+ div.navi ul li{
+ 	padding: 10px;
+ 	margin: 7px 0px 0px 2px;
+ }
+ div.novini ul{
+ 	max-width: 235px;
+ 	padding-left: 0px;
+ 	overflow: hidden;
+ 	margin: 10px 0px;
+ }
+  div.novini ul li{
+  	padding-right: 15px;
+  	padding-top: 8px;
+  	padding-bottom: 8px;
+  	padding-left: 7px;
+  	border-bottom-color: gray;
+  	border-bottom-width: 1px;
+  	border-bottom-style: solid;
+
+  }
+    div.novini ul li:last-child{
+    	border:none;
+    }
+    div.novini ul li:first-child{
+    	background-color:#00968C;
+    }
+div.novini ul li.dve:hover, li.tri:hover, li.chetiri:hover, li.pet:hover{
+  background-color:#00968C
+}
+div.novini ul li.dve img, li.tri img, li.chetiri img, li.pet img{
+  display:none
+}
+
+div.novini ul li.dve:hover img, li.tri:hover img, li.chetiri:hover img, li.pet:hover img{
+  display: inline-block;
+}
+img {
+  width: 400px;
+  height: 285px;
+}
+.strelka img{
+  width:61px;
+  height: 61px;
+  position: fixed;
+  top: 175px;
+  left:405px; 
+}
+div.cont{
+  border:#00968C 1px solid;
+  border-radius: 8px;
+}
+body {
+  background-color: black
+}

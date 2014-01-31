@@ -1,0 +1,30 @@
+﻿body {
+	ul{
+		list-style:none;
+			li{
+				display:inline-block;
+				form{
+					label{
+						img{
+							width:180px;
+							height:100px;
+						}
+					}
+					input{
+						position: absolute;
+						top:-15500px;
+						&:focus + img.show {
+							display: block;
+							position: absolute;
+							left:20px;
+							top:130px;
+						}
+					}
+					.show{
+						display: none;
+					}
+					
+				}
+			}
+	}
+}

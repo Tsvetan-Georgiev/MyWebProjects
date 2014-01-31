@@ -1,0 +1,41 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+	color: #FFFFCC;
+	background-color: #A3A3A3;
+	font-family: tahoma;
+}
+h1{
+	margin: 20px;
+}
+p{
+	color: black;
+	text-align: left;
+	margin-left: 8px;
+}
+footer p a{
+	color: black;
+	text-decoration: none;
+}
+footer{
+	color: black;
+	margin-bottom: 10px;
+}
+article header h1{
+	text-align: left;
+	margin-left: 8px;
+}
+ul li a{
+	text-decoration: none;
+}
+.current{
+	background-color: lightgray;
+}
+ul li:last-child{
+	text-decoration: underline;
+}
+section article footer p {
+	font-size: 13px;
+	margin-top: 10px;
+}

@@ -1,0 +1,26 @@
+.table{
+	display: table;
+	display: inline-block;
+	vertical-align: middle;
+}
+.table-row{
+	display: table-row;
+
+}
+.table-cell{
+	display: table-cell;
+	vertical-align: top;
+	text-align: center;
+}
+div.table fieldset div.table-row div.table-cell fieldset div.table{
+	width: 226px;
+	height: 175px;
+}
+p{
+	font-size: 20px;
+	margin-left: 30px;
+}
+input[type=range]{
+	width: 80%;
+	margin-left: 30px;
+}

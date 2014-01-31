@@ -1,0 +1,138 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: verdana;
+
+}
+body{
+	background-color: lightgray;
+}
+.glaven{
+	background-color: lightgray;
+	width: 1423px;
+	height: 750px;
+}
+div.navi{
+	width: 180px;
+	height: 100%;
+	background-color: lightgray;
+	float: left;
+	padding-bottom: 2px;
+}
+div.navi img{
+	width: 30px;
+	height: 26px;
+}
+div.basic, div.Advanced, div.Examples, div.References, div.Quiz{
+	margin-top: 15px;
+}
+div a{
+	display: block;
+	text-decoration: none;
+	color: black;
+}
+div.cont a{
+	text-decoration: underline;
+	color: red;
+	display: inline-block;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+a:hover{
+	text-decoration: underline;
+}
+.red{
+	color: #944D55;
+	font-weight: bold;
+	width: 100%;
+	display: inline;
+}
+div.cont{
+	float: left;
+	width: 70%;
+	height: 680px;
+	margin: 3px;
+	border: grey 1px solid;
+	padding: 25px 4px 0px 4px;
+	background-color:white;
+}
+img{
+	float: left;
+	margin: 10px;
+}
+button{
+	min-width: 124px;
+	min-height: 25px;
+	background-image: url("images/dqsno.gif");
+	border: black solid 1px ;
+	margin: 10px 0px 5px 0px;
+}
+button.lqvo{
+	background-image: url("images/lqvo.gif");
+}
+.bqloNaSivo{
+	background-color: gray;
+	color: white;
+	font-weight: bold;
+	padding-left: 3px;
+}
+div.banner{
+	width: 190px;
+	float: left;
+}
+div.banner div{
+
+	border: gray 1px solid;
+	margin: 3px 3px 3px 0px ;
+	padding: 0px 0px 5px 0px;
+	background-color: white;
+	font-size: 14px;
+	text-align: center;
+}
+div.banner div img{
+	text-align: center;
+	border:blue 1px solid;
+	position: relative;
+	left: 15px;
+}
+div.banner div a{
+
+	text-decoration: underline;
+	color:  #944D55;
+	display: block;
+	text-align: center;
+}
+div.banner div img{
+	display: block;
+}
+div.banner div.bqloNaSivo{
+	background-color: gray;
+	color: white;
+	font-weight: bold;
+	padding: 0;
+	margin: 0;
+	width:100%;
+}
+p.bold{
+	font-weight: bold;
+	margin: 10px 10px 5px 10px;
+}
+p{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+hr{
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+hr:first-child{
+	
+}
+div form input[type=text]{
+	width: 60%;
+	margin-top: 8px;
+	margin-bottom: 5px;
+}
+h4{
+	margin-top: 20px;
+}

@@ -1,0 +1,18 @@
+body ul {
+  list-style: none; }
+  body ul li {
+    display: inline-block; }
+    body ul li form label img {
+      width: 180px;
+      height: 100px; }
+    body ul li form input {
+      position: absolute;
+      top: -15500px; }
+      body ul li form input:focus + img.show {
+        display: block;
+        position: absolute;
+        left: 20px;
+        top: 130px; }
+    body ul li form .show {
+      display: none; }
+

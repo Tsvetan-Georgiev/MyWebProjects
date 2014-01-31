@@ -1,0 +1,19 @@
+@font-face{
+	font-family: edwardianscriptitc;
+	src: url(fonts/itcedscr.ttf);
+}
+p{
+	color: #0094ff;
+	font-family: consolas;
+}
+p:before{
+ 
+}
+p:first-line{
+	line-height: 45px;
+	font-weight: bold;
+}
+p:first-letter{
+    font-size:1.9em;
+    font-family:edwardianscriptitc;
+}

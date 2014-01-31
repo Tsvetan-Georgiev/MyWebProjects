@@ -1,0 +1,80 @@
+*{
+	margin:0;
+	padding: 0;
+}
+div{
+	padding: 5px;
+}
+div.parvi{
+	padding-bottom: 20px;
+	background: -moz-linear-gradient(top,  rgba(59,59,59,0.58) 0%, rgba(59,59,59,0.58) 1%, rgba(48,48,48,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(59,59,59,0.58)), color-stop(1%,rgba(59,59,59,0.58)), color-stop(100%,rgba(48,48,48,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(59,59,59,0.58) 0%,rgba(59,59,59,0.58) 1%,rgba(48,48,48,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(59,59,59,0.58) 0%,rgba(59,59,59,0.58) 1%,rgba(48,48,48,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(59,59,59,0.58) 0%,rgba(59,59,59,0.58) 1%,rgba(48,48,48,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(59,59,59,0.58) 0%,rgba(59,59,59,0.58) 1%,rgba(48,48,48,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#943b3b3b', endColorstr='#303030',GradientType=0 ); /* IE6-9 */
+	vertical-align: middle;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+}
+div.vtori{
+	background-color: #3B3B3B;
+	padding: 10px 60px 13px 13px;
+	border-bottom-right-radius: 8px;
+	border-bottom-left-radius: 8px;
+}
+img{
+	float: left;
+	width: 50px;
+	height: 50px;
+}
+span{
+	margin: 0px 15px 15px 15px;
+	color: white;
+	font-size: 25px;
+	float: left;
+}
+input[type="text"]{
+	padding: 2px 10px 5px 10px;
+	margin: 0px 20px 0px 0px;
+	color: black;
+}
+button{
+	border:white 1px solid;
+	border-radius: 10px;
+	color: white;
+	background-color:#E56E74;
+	padding: 5px 16px;
+	box-shadow:0px -9px 1px 4px #CA0401 inset;
+	text-shadow: 1px -2px 6px black;
+}
+button.clearfix{
+	zoom:1;
+}
+button.clearfix:after{
+	content: "";
+	display: block;
+	clear: :both;
+	height: 0;
+}
+h1{
+	color: #F7D535;
+	font-weight: normal;
+	margin-bottom: 14px;
+	margin-top: 6px;
+}
+p{
+	font-family: verdana;
+	font-size: 13px;
+	color: #A3A3A3;
+	line-height: 17px;
+	text-align: left;
+}
+p.bline{
+	margin-bottom: 3px;
+}
+em{
+	font-style: normal;
+	color: white;
+}
