@@ -1,0 +1,130 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Домашна работа 2-8</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<label for="chislo" style="margin-left:1%;">Напишете число</label>
+	<input type="text" id="chislo">
+	<button onclick="onButtonClicked()" style="margin-left:1%">Резултат</button>
+	<div id="js-console" style="margin-left:1%;margin-top:1%"></div>
+	<script src="scripts/js-console.js"></script>
+	<script> 
+		function onButtonClicked(){
+			var chislo=jsConsole.readFloat("#chislo");
+				jsConsole.write('"'+chislo+'" => ')
+			var edinici= chislo%10,
+				desetici=(chislo/10)%10,
+				stotici=chislo/100,
+				special;
+			desetici=parseInt(desetici,10);
+			stotici=parseInt(stotici,10);
+			if (desetici==1) {
+				special=chislo%100;
+				switch(special){
+					case 10:special="Ten";break;
+					case 11:special="Elevan";break;
+					case 12:special="Twelve";break;
+					case 13:special="Thirteen";break;
+					case 14:special="Fourteen";break;
+					case 15:special="Fifteen";break;
+					case 16:special="Sixteen";break;
+					case 17:special="Seventeen";break;
+					case 18:special="Eighteen";break;
+					case 19:special="Nineteen";break;
+				}
+			};
+			switch(edinici){
+				case 0: edinici="Zero";break;
+				case 1: edinici="One";break;
+				case 2: edinici="Two";break;
+				case 3: edinici="Three";break;
+				case 4: edinici="Four";break;
+				case 5: edinici="Five";break;
+				case 6: edinici="Six";break;
+				case 7: edinici="Seven";break;
+				case 8: edinici="Eight";break;
+				case 9: edinici="Nine";break;
+			}
+			switch(desetici){
+				case 0: desetici="";break;
+				case 1: desetici="";break;
+				case 2: desetici="Twenty";break;
+				case 3: desetici="Thirty";break;
+				case 4: desetici="Forty";break;
+				case 5: desetici="Fifty";break;
+				case 6: desetici="Sixty";break;
+				case 7: desetici="Seventy";break;
+				case 8: desetici="Eighty";break;
+				case 9: desetici="Ninety";break;
+			}
+			switch(stotici){
+				case 0: stotici="";break;
+				case 1: stotici="One hundred";break;
+				case 2: stotici="Two hundred";break;
+				case 3: stotici="Three hundred";break;
+				case 4: stotici="Four hundred";break;
+				case 5: stotici="Five hundred";break;
+				case 6: stotici="Six hundred";break;
+				case 7: stotici="Seven hundred";break;
+				case 8: stotici="Eight hundred";break;
+				case 9: stotici="Nine hundred";break;
+			}
+			if (chislo==100) {
+				jsConsole.writeLine("One hundred")
+			} 
+			else{
+				if (chislo>119) {
+					if (edinici=="Zero") {
+						edinici="";
+						jsConsole.writeLine('"'+stotici+" and "+desetici+" "+edinici+'"');
+					}
+					else{
+						jsConsole.writeLine('"'+stotici+" and "+desetici+" "+edinici+'"');
+					}
+				} else{
+					if (chislo>109) {
+						jsConsole.writeLine('"'+stotici+" and "+special+'"');
+					} 
+					else{
+						if (chislo>100) {
+							if (edinici=="Zero") {
+								edinici="";
+								jsConsole.writeLine('"'+stotici+" and "+desetici+" "+edinici+'"');
+							}
+							else{
+								jsConsole.writeLine('"'+stotici+" and "+desetici+" "+edinici+'"');
+							}
+						} else{
+							if (chislo<100&&chislo>19) {
+								if (edinici=="Zero") {
+									edinici="";
+									jsConsole.writeLine('"'+desetici+" "+edinici+'"');
+								} 
+								else{
+									jsConsole.writeLine('"'+desetici+" "+edinici+'"');
+								};
+							}
+							else{
+								if (chislo<20&&chislo>9) {
+									jsConsole.writeLine('"'+special+'"');
+								} 
+								else{
+									if (chislo<10&&chislo>=0) {
+									jsConsole.writeLine('"'+edinici+'"');
+									} 
+									else{
+										jsConsole.writeLine("Не е в интервала 0-999.");
+									};
+								};
+							};
+						};
+					};
+				};
+			};
+		}
+		
+	</script>
+</body>
+</html>

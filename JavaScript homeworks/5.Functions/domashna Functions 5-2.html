@@ -1,0 +1,30 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Домашна работа 4-2</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<form>
+	<label for="chisla" style="margin-left:1%;">Напишете числo</label>
+	<input type="text" value="" name="k" id="chisla">
+	</form>
+	<button onclick="onButtonClicked()" style="margin-left:1%">Резултат</button>
+	<div id="js-console" style="margin-left:1%;margin-top:1%"></div>
+	<script src="scripts/js-console.js"></script>
+	<script> 
+		function onButtonClicked(){
+			var chislo=jsConsole.read("#chisla");
+			var obratnoBe=chislo.split("");
+			function prevartaneNaChislo(getChislo){	
+				getChislo.reverse();
+			var maniZapetaqta=getChislo.toString();
+			var comma=/,/gi;
+			var	mahnataZapetaq=maniZapetaqta.replace(comma,"");
+				jsConsole.writeLine('"'+chislo+'" => '+'"'+mahnataZapetaq+'"');
+			}
+			prevartaneNaChislo(obratnoBe);
+		}
+	</script>
+</body>
+</html>

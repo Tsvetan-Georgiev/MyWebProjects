@@ -1,0 +1,49 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Домашна работа 4-7</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<label for="#masivOtChisla" style="margin-left:1%;">Напишете масив с числа разделени със запетая:</label>
+	<textarea type="textarea" value="" name="k" id="masivOtChisla"></textarea>
+	<br>
+	<label for="chislo" style="margin-left:1%;">Напишете позиция, за проверка:</label>
+	<input type="text" value="" name="k" id="chislo">
+	<button onclick="onButtonClicked()" style="margin-left:1%">Резултат</button>
+	<div id="js-console" style="margin-left:1%;margin-top:1%"></div>
+	<script src="scripts/js-console.js"></script>
+	<script> 
+		function onButtonClicked(){
+		var	arr=jsConsole.readNumbersArray("#masivOtChisla",","),
+			position=jsConsole.readInteger("#chislo");
+			function isNumberBigger(number,masiv){
+				var previous=number-1,
+					next=number+1;
+				if (masiv[number]>masiv[previous]&& masiv[number]>masiv[next]) {
+					return true;
+				}
+				else{
+					return false;
+				};
+			}
+			jsConsole.writeLine("Отговора е: "+isNumberBigger(position,arr)); 
+			function firstBigger(){
+				var stop=arr.length;
+				for (var i = 0; i < stop; i++) {
+					if(isNumberBigger(i,arr)){
+						return i;
+					}
+				}
+				return "-1";
+			}
+			if (firstBigger()!= -1) {
+				jsConsole.writeLine("Първото число отговарящо на изискванията е на позиция: "+firstBigger());
+			}
+			else{
+				jsConsole.writeLine("Функцията връща: "+firstBigger()+" => няма число отговарящо на изискванията");
+			}
+		}
+	</script>
+</body>
+</html>

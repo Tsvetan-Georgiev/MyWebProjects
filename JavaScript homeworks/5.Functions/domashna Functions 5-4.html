@@ -1,0 +1,23 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Домашна работа 4-4</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body id="body">
+	<button onclick="onButtonClicked()" style="margin-left:1%">Резултат</button>
+	<div id="js-console" style="margin-left:1%;margin-top:1%"></div>
+	<script src="scripts/js-console.js"></script>
+	<script> 
+		function onButtonClicked(){
+			function countDivElements(){
+			var body=document.getElementById("body");
+			var divs=body.getElementsByTagName("div");
+			jsConsole.writeLine(divs.length);
+			}
+			countDivElements();
+		}
+		
+	</script>
+</body>
+</html>

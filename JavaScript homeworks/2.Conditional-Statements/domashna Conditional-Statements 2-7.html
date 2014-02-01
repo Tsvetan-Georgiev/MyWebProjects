@@ -1,0 +1,58 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Домашна работа 2-7</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<label for="chisloEdno" style="margin-left:1%;">число:</label>
+	<input type="text" id="chisloEdno">
+	<label for="chisloDve" style="margin-left:1%;">число:</label>
+	<input type="text" id="chisloDve">
+	<label for="chisloTri" style="margin-left:1%;">число:</label>
+	<input type="text" id="chisloTri">
+	<label for="chisloChetiri" style="margin-left:1%;">число:</label>
+	<input type="text" id="chisloChetiri">
+	<label for="chisloPet" style="margin-left:1%;">число:</label>
+	<input type="text" id="chisloPet">
+	<button onclick="onButtonClicked()" style="margin-left:1%">Резултат</button>
+	<div id="js-console" style="margin-left:1%;margin-top:1%"></div>
+	<script src="scripts/js-console.js"></script>
+	<script> 
+		function onButtonClicked(){
+			var edno=jsConsole.readFloat("#chisloEdno"),
+				dve=jsConsole.readFloat("#chisloDve"),
+				tri=jsConsole.readFloat("#chisloTri"),
+				chetiri=jsConsole.readFloat("#chisloChetiri"),
+				pet=jsConsole.readFloat("#chisloPet"),
+				max=edno;
+			if(max>=dve&&max>=tri&&max>=chetiri&&max>=pet){
+				jsConsole.writeLine("От числата : "+edno+","+dve+","+tri+","+chetiri+","+pet+" най-голямо е: "+max);
+			}
+			else{
+				if (dve>=tri&&dve>=chetiri&&dve>=pet) {
+					max=dve;
+					jsConsole.writeLine("От числата : "+edno+","+dve+","+tri+","+chetiri+","+pet+" най-голямо е: "+max);
+				} 
+				else{
+					if (tri>=chetiri&&tri>=pet) {
+						max=tri;
+						jsConsole.writeLine("От числата : "+edno+","+dve+","+tri+","+chetiri+","+pet+" най-голямо е: "+max);
+					} 
+					else{
+						if (chetiri>=pet) {
+							max=chetiri;
+							jsConsole.writeLine("От числата : "+edno+","+dve+","+tri+","+chetiri+","+pet+" най-голямо е: "+max);
+						} 
+						else{
+							max=pet;
+							jsConsole.writeLine("От числата : "+edno+","+dve+","+tri+","+chetiri+","+pet+" най-голямо е: "+max);
+						};
+					};
+				};
+			}
+		}
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Домашна работа 4-5</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<form>
+	<label for="#masivOtChisla" style="margin-left:1%;">Напишете масив с числа разделени със запетая и точка накрая:</label>
+	<textarea type="textarea" value="" name="k" id="masivOtChisla"></textarea>
+	<br>
+	<label for="chislo" style="margin-left:1%;">Напишете число, което да проверим колко пъти се среща</label>
+	<input type="text" value="" name="k" id="chislo">
+	</form>
+	<button onclick="onButtonClicked()" style="margin-left:1%">Резултат</button>
+	<div id="js-console" style="margin-left:1%;margin-top:1%"></div>
+	<script src="scripts/js-console.js"></script>
+	<script> 
+		function onButtonClicked(){
+				var number = jsConsole.readFloat("#chislo"),
+					str = document.getElementById("masivOtChisla").value;
+			function namiraneNaSreshtaneNaChislo (number,str){
+				var	daljina = str.length,
+					arr = [] ,
+					buffer = "" ;
+				for (var i = 0; i < daljina; i++) {					
+					if (str[i] === " " || str[i] === "," || str[i] === "." || str[i] === "?" || str[i] === "!") {
+						arr.push(buffer);
+						buffer = "";
+					}
+					else{
+						buffer += str[i];
+					}
+				};
+				buffer = 0;
+			function CountNumber(){
+				var stop = arr.length;
+				for (var i = 0; i < stop; i++) {
+					if (arr[i] == number) {
+						buffer++;
+					}
+				};
+			}
+			CountNumber();
+			jsConsole.writeLine(number+" се среща "+buffer+" пъти");
+			}
+			namiraneNaSreshtaneNaChislo(number,str);
+			testNamiraneChislo();
+			function testNamiraneChislo(){
+				var	arr1="1, 2, 3, 1, 2, 3.",
+					arr2="-5, 0, 0, 1, 2, 3.",
+					arr3="-5, -5 ,-5, -5.",
+					num=1,
+					num1="0",
+					num2=-5;
+				jsConsole.write(" Верния отговор е '2' =>");
+				namiraneNaSreshtaneNaChislo(num,arr1);
+				jsConsole.write(" Верния отговор е '0' =>");
+				namiraneNaSreshtaneNaChislo(num1,arr1);
+				jsConsole.write(" Верния отговор е '0' =>");
+				namiraneNaSreshtaneNaChislo(num2,arr1);
+				jsConsole.write(" Верния отговор е '1' =>");
+				namiraneNaSreshtaneNaChislo(num,arr2);
+				jsConsole.write(" Верния отговор е '2' =>");
+				namiraneNaSreshtaneNaChislo(num1,arr2);
+				jsConsole.write(" Верния отговор е '1' =>");
+				namiraneNaSreshtaneNaChislo(num2,arr2);
+				jsConsole.write(" Верния отговор е '0' =>");
+				namiraneNaSreshtaneNaChislo(num,arr3);
+				jsConsole.write(" Верния отговор е '0' =>");
+				namiraneNaSreshtaneNaChislo(num1,arr3);
+				jsConsole.write(" Верния отговор е '4' =>");
+				namiraneNaSreshtaneNaChislo(num2,arr3);
+			}
+		}
+		
+	</script>
+</body>
+</html>

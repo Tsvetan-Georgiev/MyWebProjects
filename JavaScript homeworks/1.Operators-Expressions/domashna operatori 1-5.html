@@ -1,0 +1,31 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Домашна работа 1-5</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<label for="prime" style="margin-left:1%;">Напишете число за проверка &lt;= 100</label>
+	<input type="text" id="prime">
+	<button onclick="onButtonClicked()" style="margin-left:1%">Резултат</button>
+	<div id="js-console" style="margin-left:1%;margin-top:1%"></div>
+	<script src="scripts/js-console.js"></script>
+	<script> 
+		function onButtonClicked(){
+			var y=jsConsole.readFloat("#prime");
+			if (y<=100) {
+				for (var i = y-1; i >= 2;i--) {
+					var dali=i;
+					if (y%dali==0) {
+						return jsConsole.writeLine("Изглежда числото не е просто(в математическия смисъл де).");
+					}
+				};
+				jsConsole.writeLine("Да! числото "+y+" е просто");
+			} 
+			else{
+				jsConsole.writeLine("Ами тц! Невалидно число");
+			};
+		}
+	</script>
+</body>
+</html>

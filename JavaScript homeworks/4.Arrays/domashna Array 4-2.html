@@ -1,0 +1,57 @@
+
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Homework 4-1</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<label for="#masivOtChisla" style="margin-left:1%;">Write an array of chars separated with ","</label>
+		<textarea type="textarea" value="" name="k" id="arrayOfChars"></textarea>
+	<label for="#masivOtChisla" style="margin-left:1%;">Write another array of chars separated with ","</label>
+		<textarea type="textarea" value="" name="k" id="arrayOfChars2"></textarea>
+	<button onclick="onButtonClicked()" style="margin-left:1%">lexicographical comparison</button>
+	<div id="js-console" style="margin-left:1%;margin-top:1%"></div>
+		<script src="scripts/js-console.js"></script>
+		<script>
+		function onButtonClicked(){
+		var arrOne=jsConsole.readArray("#arrayOfChars",","),
+			arrTwo=jsConsole.readArray("#arrayOfChars2",","),
+			arrOneLength=arrOne.length,
+			arrTwoLength=arrTwo.length;
+		if (arrOneLength>=arrTwoLength) {
+			for (var i = 0; i < arrOneLength; i++) {
+			var one=arrOne[i].toString(),
+			two=arrTwo[i].toString();
+			one=one.charCodeAt(0);
+			two=two.charCodeAt(0);
+				if (one<two) {
+				return jsConsole.write(arrOne+"<br>"+arrTwo)
+				}
+				else{
+					if (one>two) {
+					return jsConsole.write(arrTwo+"<br>"+arrOne)
+					};
+				};
+			};
+		}
+		else{
+			for (var i = 0; i < arrTwoLength; i++) {
+			var one=arrOne[i].toString(),
+			two=arrTwo[i].toString();
+			one=one.charCodeAt(0);
+			two=two.charCodeAt(0);
+				if (one<two) {
+				return jsConsole.write(arrOne+"<br>"+arrTwo)
+				}
+				else{
+					if (one>two) {
+					return jsConsole.write(arrTwo+"<br>"+arrOne)
+					};
+				};
+			};
+		};
+		}
+</script>
+</body>
+</html>

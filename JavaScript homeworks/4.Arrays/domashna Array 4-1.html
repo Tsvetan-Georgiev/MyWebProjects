@@ -1,0 +1,22 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Homework 4-1</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<button onclick="onButtonClicked()" style="margin-left:1%">Result</button>
+	<div id="js-console" style="margin-left:1%;margin-top:1%"></div>
+	<script src="scripts/js-console.js"></script>
+	<script> 
+		function onButtonClicked(){
+			var arr=new Array(20);
+			for (var i = 0; i < 20; i++) {
+				arr[i]=i;
+				arr[i]*=5;
+				jsConsole.writeLine("The index *5= "+arr[i]); 
+			};
+		}
+	</script>
+</body>
+</html>

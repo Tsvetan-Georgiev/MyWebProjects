@@ -1,0 +1,31 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Домашна работа 1-1</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<label for="getNumber" style="margin-left:1%;">Напишете число за проверка</label>
+	<input type="text" id="getNumber">
+	<button onclick="oddOrEven()" style="margin-left:1%">Резултат</button>
+	<div id="js-console" style="margin-left:1%;margin-top:1%"></div>
+	<script src="scripts/js-console.js"></script>
+	<script> 
+			function oddOrEven(){
+				var number = jsConsole.readFloat("#getNumber");
+				if (parseInt(number)==number) {
+					if (number % 2== 0) {
+						jsConsole.writeLine("Числото "+number+" е: четно");
+					}
+					else{
+						jsConsole.writeLine("Числото "+number+" е: нечетно");
+				}
+				} 
+				else{
+					jsConsole.writeLine("Грешка! Моля пробвайте с число.");
+				};
+				
+			}
+	</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Домашна работа шаблон</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<label for="getNumber" style="margin-left:1%;">Напишете число за да Ви кажа името му на английски.</label>
+	<input type="text" id="getNumber">
+	<button onclick="onButtonClicked()" style="margin-left:1%">Резултат</button>
+	<div id="js-console" style="margin-left:1%;margin-top:1%"></div>
+	<script src="scripts/js-console.js"></script>
+	<script> 
+		function onButtonClicked(){
+			var getNumber=jsConsole.readFloat("#getNumber");
+			if (getNumber>9||getNumber<0) {
+				jsConsole.writeLine('Все още уча компютъра да пише отрицателни числа или по-големи от 9, но го пробвайте от 0-9')
+			} 
+			else{
+				switch(getNumber){
+					case 1:jsConsole.writeLine("The name of the digit '"+getNumber+"' is 'one'");break;
+					case 2:jsConsole.writeLine("The name of the digit '"+getNumber+"' is two");break;
+					case 3:jsConsole.writeLine("The name of the digit '"+getNumber+"' is three");break;
+					case 4:jsConsole.writeLine("The name of the digit '"+getNumber+"' is four");break;
+					case 5:jsConsole.writeLine("The name of the digit '"+getNumber+"' is five");break;
+					case 6:jsConsole.writeLine("The name of the digit '"+getNumber+"' is six");break;
+					case 7:jsConsole.writeLine("The name of the digit '"+getNumber+"' is seven");break;
+					case 8:jsConsole.writeLine("The name of the digit '"+getNumber+"' is eight");break;
+					case 9:jsConsole.writeLine("The name of the digit '"+getNumber+"' is nine");break;
+					case 0:jsConsole.writeLine("The name of the digit '"+getNumber+"' is zero");break;
+				} 	
+			};
+		}
+		
+	</script>
+</body>
+</html>

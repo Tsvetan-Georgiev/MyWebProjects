@@ -1,0 +1,43 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Домашна работа шаблон</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<label for="chisloA" style="margin-left:1%;">Напишете първото число</label>
+	<input type="text" id="chisloA">
+	<label for="chisloB" style="margin-left:1%;">Напишете второто число</label>
+	<input type="text" id="chisloB">
+	<label for="chisloC" style="margin-left:1%;">Напишете третото число</label>
+	<input type="text" id="chisloC">	
+	<button onclick="onButtonClicked()" style="margin-left:1%">Резултат</button>
+	<div id="js-console" style="margin-left:1%;margin-top:1%"></div>
+	<script src="scripts/js-console.js"></script>
+	<script> 
+		function onButtonClicked(){
+			var chisloA=jsConsole.readFloat("#chisloA"),
+				chisloB=jsConsole.readFloat("#chisloB"),
+				chisloC=jsConsole.readFloat("#chisloC");
+			if (chisloA!=chisloB&&chisloA!=chisloC&&chisloB!=chisloC) {
+			if (chisloA>chisloB&& chisloA>chisloC) {
+					jsConsole.writeLine("Най-голямото число е: "+chisloA);		
+				}
+			else{
+				if (chisloB>chisloA&&chisloB>chisloC) {
+					jsConsole.writeLine("Най-голямото число е: "+chisloB);
+				} 
+				else{
+					jsConsole.writeLine("Най-голямото число е: "+chisloC);
+				};
+			};
+			} 
+			else{
+				jsConsole.writeLine("Някои от числата са еднакви");
+			};
+			
+		}
+		
+	</script>
+</body>
+</html>

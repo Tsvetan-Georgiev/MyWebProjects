@@ -1,0 +1,65 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Домашна работа 4-3</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<form>
+	<label for="#textaPlease" style="margin-left:1%;">Напишете текст</label>
+	<textarea type="textarea" value="" name="k" id="textaPlease"></textarea>
+	<label for="duma" style="margin-left:1%;">и дума която да търсим в текста</label>
+	<input type="text" value="" name="kj" id="duma">
+	</form>
+	<button onclick="onButtonClicked()" style="margin-left:1%">Резултат</button>
+	<div id="js-console" style="margin-left:1%;margin-top:1%"></div>
+	<script src="scripts/js-console.js"></script>
+	<script> 
+		function onButtonClicked(){
+			var word = document.getElementById("duma").value;
+			var str = document.getElementById("textaPlease").value;
+			var nov="",nov1=[];
+			function makeStrToArray(str){
+				var daljina=str.length;
+				for (var i = 0; i < daljina; i++) {					
+					if (str[i]===" "||str[i]===","||str[i]==="."||str[i]==="?"||str[i]==="!") {
+						nov1.push(nov);
+						nov="";
+					}
+					else{
+						nov+=str[i];
+					}
+				};
+			}
+			makeStrToArray(str);
+			function getCharCount(str,string,isCaseSensitive) {
+				function getCharCountCaseInsensitive(string) {
+					var count = 0;
+					var lowerString = string.toLowerCase();
+					var upperString = string.toUpperCase();
+					for (var ch = 0; ch < str.length; ch++) {
+						if (str[ch] === lowerString || str[ch] === upperString) count++;
+					}
+					return count;
+				}
+
+				function getCharCountCaseSensitive(string) {
+					var count = 0;
+					for (var ch = 0; ch < str.length; ch++) {
+						if (str[ch] === string) count++;
+					}
+					return count;
+				}
+				switch (arguments.length) {
+					case 2:
+						return getCharCountCaseInsensitive(string);
+					case 3:
+						return isCaseSensitive ? getCharCountCaseSensitive(string) : getCharCountCaseInsensitive(string);
+				}
+		}															   						   
+		jsConsole.writeLine(word+" in case insensitive - > " + getCharCount(nov1, word, false));
+		jsConsole.writeLine(word+" in case sensitive - > " + getCharCount(nov1, word, true));
+		}
+	</script>
+</body>
+</html>

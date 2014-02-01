@@ -1,0 +1,32 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Домашна работа 1-4</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<label for="getNumber" style="margin-left:1%;">Напишете число</label>
+	<input type="text" id="getNumber">
+	<label for="getDigit" style="margin-left:1%;">Проверка на третия символ</label>
+	<input type="text" id="getDigit">
+	<button onclick="onButtonClicked()" style="margin-left:1%">Резултат</button>
+	<div id="js-console" style="margin-left:1%;margin-top:1%"></div>
+	<script src="scripts/js-console.js"></script>
+	<script> 
+		function onButtonClicked(){
+			var a = jsConsole.readFloat("#getNumber"),
+				digit = jsConsole.readFloat("#getDigit"),
+				zaProverka = new String(a),
+				f=zaProverka.length-3,
+				ahaa=zaProverka[f];
+			if (ahaa==digit) {
+				jsConsole.writeLine("Правилно! Числото което сте въвели съвпада с 3-тия символ от дясно на ляво");
+			} else{
+				jsConsole.writeLine("За съжаление или числото което сте въвели не е в хилядите и нагоре или числото за проверка е невярно");
+			};
+			 
+		}
+		
+	</script>
+</body>
+</html>

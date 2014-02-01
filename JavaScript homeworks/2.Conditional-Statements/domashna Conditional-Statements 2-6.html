@@ -1,0 +1,60 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Домашна работа 2-6</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<label for="chisloA" style="margin-left:1%;">Напишете "a" на уравнението</label>
+	<input type="text" id="chisloA">
+	<label for="chisloB" style="margin-left:1%;">Напишете "b" на уравнението</label>
+	<input type="text" id="chisloB">
+	<label for="chisloC" style="margin-left:1%;">Напишете "c" на уравнението</label>
+	<input type="text" id="chisloC">
+	<button onclick="onButtonClicked()" style="margin-left:1%">Резултат</button>
+	<div id="js-console" style="margin-left:1%;margin-top:1%"></div>
+	<script src="scripts/js-console.js"></script>
+	<script> 
+		function onButtonClicked(){
+		var chisloA=jsConsole.readFloat("#chisloA"),
+			chisloB=jsConsole.readFloat("#chisloB"),
+			chisloC=jsConsole.readFloat("#chisloC"),
+			//a*(x*x)+b*x+c=0 ----> x=(-b+-sqrt(b*b-4*a*c))/2*a
+			//ako D>0 2 korena; D=0 1koren => -1*(b/2*a); D<0 0 korena
+			discriminant=chisloB*chisloB-4*chisloA*chisloC;
+			if (discriminant>0) {
+				var x1=(-1*chisloB+Math.sqrt(discriminant))/(2*chisloA),
+					x2=(-1*chisloB-Math.sqrt(discriminant))/(2*chisloA);
+					jsConsole.write("x1= "+x1+" x2= "+x2+" => ");
+					if (x2<0) {
+						x2=Math.abs(x2);
+						if (x1<0) {
+							x1=Math.abs(x1);
+							jsConsole.writeLine("Корените на уравнението са: "+chisloA+"(x+"+x1+")(x+"+x2+")");
+						} 
+						else{
+						jsConsole.writeLine("Корените на уравнението са: "+chisloA+"(x-"+x1+")(x+"+x2+")");	
+						};
+					} 
+					else{
+						jsConsole.writeLine("Корените на уравнението са: "+chisloA+"(x-"+x1+")(x-"+x2+")");
+					};
+			} 
+			else{
+				if (discriminant==0) {
+				var x1=-1*(chisloB/2*chisloA);
+					jsConsole.writeLine("Дискриминантата е = 0 => има един корен : "+x1);
+				} 
+				else{
+					if (discriminant<0) {
+						jsConsole.writeLine("Дискриминантата < 0 => няма реални корени");
+					} 
+					else{
+						jsConsole.writeLine("Проверете въведените числа дали са ОК.");
+					};
+				};
+			};
+			}
+	</script>
+</body>
+</html>

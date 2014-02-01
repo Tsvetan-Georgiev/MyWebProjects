@@ -1,0 +1,55 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Homework 4-4</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<label for="#masivOtChisla" style="margin-left:1%;">Write an array of numbers separated with ","</label>
+	<textarea type="textarea" value="" name="k" id="arrayOfChars"></textarea>
+	<button onclick="onButtonClicked()" style="margin-left:1%">maximal sequence of increasing elements</button>
+	<div id="js-console" style="margin-left:1%;margin-top:1%"></div>
+	<script src="scripts/js-console.js"></script>
+	<script> 
+		function onButtonClicked(){
+			var arrOne=jsConsole.readNumbersArray("#arrayOfChars",","),
+				arrOneLength=arrOne.length,
+				max=0,
+				maximumStart;
+			function findMax(){
+				var currentMax=1;
+				for (var i = 0; i < arrOneLength; i++) {	//obhojda vsichki elementi
+					var current=arrOne[i],
+						j=i
+						j++;
+					var	next=arrOne[j];
+					if (current==next-1) {	//proverqva dali sledvashtiq e s edno po-golqmo na segashniq
+						do{
+							current=arrOne[j];	//current stava sledvashiq, a
+							j++;
+							next=arrOne[j];		//sledvashtiq stava po-sledvasht
+							currentMax++;	//digame nastoqshtiq maximum s edinica
+							if (currentMax>max) {	//ako nastoqshtiq maximum e po-golqm ot tozi v celiq cikal
+								max=currentMax;		//digame i nego
+								maximumStart=j-max;
+							}
+						}
+						while(current==next-1);	//dokato nastoqshtiq e s edno po-golqmo na sledvashtiq element
+						currentMax=1;	// i nakraq zanulqvame nastoqshtiq maximum
+					};
+				};
+			}
+			function writeSequence(){
+				var maxSecq=new Array(0),
+					end=maximumStart+max;
+				for (var i = maximumStart; i < end; i++) {
+					maxSecq.push(arrOne[i]);
+				};
+				return jsConsole.writeLine("{ "+arrOne+" } => { "+maxSecq+" }")
+			}
+			findMax();
+			writeSequence();
+		}		
+	</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Домашна работа 3-4</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<button onclick="onButtonClicked()" style="margin-left:1%">Резултат</button>
+	<div id="js-console" style="margin-left:1%;margin-top:1%"></div>
+	<script src="scripts/js-console.js"></script>
+	<script> 
+		function onButtonClicked(){
+			var min="zzzzz",max="aaaaaa",
+				masivZaProverka=[];
+			for(var i in document){
+				var asd=i
+				if (asd<min) {
+					min=i;
+				};
+				if (asd>max) {
+					max=asd;
+				};
+			}
+			jsConsole.writeLine("Най-малкото пропърти на document е: "+min);
+			jsConsole.writeLine("Най-голямото пропърти нa document е: "+max);
+			min="zzzzz";max="aaaaaa";
+			for(var i in window){
+				var asd=i
+				if (asd<min) {
+					min=i;
+				};
+				if (asd>max) {
+					max=asd;
+				};
+			}
+			jsConsole.writeLine("Най-голямото пропърти нa window е: "+min);
+			jsConsole.writeLine("Най-голямото пропърти нa window е: "+max);
+			min="zzzzz";max="aaaaaa";
+			for(var i in navigator){
+				var asd=i
+				if (asd<min) {
+					min=i;
+				};
+				if (asd>max) {
+					max=asd;
+				};
+			}
+			jsConsole.writeLine("Най-голямото пропърти нa navigator е: "+min);
+			jsConsole.writeLine("Най-голямото пропърти нa navigator е: "+max);
+
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Домашна работа 3-2</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<label for="chislo" style="margin-left:1%;">Напишете число N</label>
+	<input type="text" id="chislo">
+	<button onclick="onButtonClicked()" style="margin-left:1%">Резултат</button>
+	<div id="js-console" style="margin-left:1%;margin-top:1%"></div>
+	<script src="scripts/js-console.js"></script>
+	<script> 
+		function onButtonClicked(){
+			var N=jsConsole.readFloat("#chislo");
+			for (var i = 1; i < N+1; i++) {
+				if (i%3==0||i%7==0) {
+					jsConsole.write("") ;
+				} 
+				else{
+					jsConsole.write(i+" ") ;
+				};
+			};
+		}
+	</script>
+</body>
+</html>
