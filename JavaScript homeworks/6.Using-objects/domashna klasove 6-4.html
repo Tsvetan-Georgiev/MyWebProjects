@@ -1,0 +1,34 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Homework 6-4</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<label for="propToCheck" style="margin-left:1%;">Enter property to check</label>
+	<input type="text" value="" name="k" id="propToCheck"></input>
+	<button onclick="onButtonClicked()" style="margin-left:1%">Result</button>
+	<div id="js-console" style="margin-left:1%;margin-top:1%"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+		function onButtonClicked(){
+			var obj=window,
+				property=jsConsole.read("#propToCheck");
+				property=property.toString();
+			function hasProperty(obj,property){
+				for(prop in obj){
+					if (prop==property) {
+						return "Yes!";
+					}
+				}
+			}
+			if (hasProperty(obj,property)=="Yes!") {
+			jsConsole.writeLine("Function( "+obj+" , "+'"'+property+'" ): '+hasProperty(obj,property));
+			} 
+			else{
+				jsConsole.writeLine("Function( "+obj+" , "+'"'+property+'" ): No!');
+			};
+		}
+	</script>
+</body>
+</html>

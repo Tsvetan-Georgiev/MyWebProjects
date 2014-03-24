@@ -1,0 +1,31 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Homework 6-5</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<button onclick="onButtonClicked()" style="margin-left:1%">Result</button>
+	<div id="js-console" style="margin-left:1%;margin-top:1%"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+		function onButtonClicked(){
+			var persons=[
+			{fName:"Maria",lName:"Simova",age:"18"},
+			{fName:"Georgi",lName:"Parvanov",age:"55"},
+			{fName:"Slavi",lName:"Trifonov",age:"80"},
+			{fName:"Barak",lName:"Obama",age:"52"},
+			{fName:"Angela",lName:"Merkel",age:"29"}
+			];
+			function findYoungest(pers){
+				var min=pers.slice(0);
+					min.sort(function(a,b){
+						return a.age-b.age
+					});
+					jsConsole.writeLine("Youngster: "+min[0].fName+" "+min[0].lName+" "+min[0].age+" years old.");
+			};
+			findYoungest(persons);
+		}
+	</script>
+</body>
+</html>

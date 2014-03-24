@@ -1,0 +1,74 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Homework 6-1</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<label for="#x1" style="margin-left:1%;">Enter "x"</label>
+	<input type="text" value="" name="k" id="x1"></input>
+	<label for="#y1" style="margin-left:1%;">Enter "y"</label>
+	<input type="text" value="" name="k" id="y1"></input><br>
+	<label for="#x2" style="margin-left:1%;">Enter "x2"</label>
+	<input type="text" value="" name="k" id="x2"></input>
+	<label for="#y2" style="margin-left:1%;">Enter "y2"</label>
+	<input type="text" value="" name="k" id="y2"></input><br>
+	<label for="#x3" style="margin-left:1%;">Enter "x3"</label>
+	<input type="text" value="" name="k" id="x3"></input>
+	<label for="#y3" style="margin-left:1%;">Enter "y3"</label>
+	<input type="text" value="" name="k" id="y3"></input>
+	<button onclick="onButtonClicked()" style="margin-left:1%">result</button>
+	<div id="js-console" style="margin-left:1%;margin-top:1%"></div>
+	<script src="scripts/js-console.js"></script>
+	<script> 
+		function onButtonClicked(){
+			var x=jsConsole.readFloat("#x1"),
+				y=jsConsole.readFloat("#y1"),
+				x2=jsConsole.readFloat("#x2"),
+				y2=jsConsole.readFloat("#y2"),
+				x3=jsConsole.readFloat("#x3"),
+				y3=jsConsole.readFloat("#y3");
+			function planarCoorSyst(x,y){
+				return {
+					xPoint:x,
+					yPoint:y
+				}
+			}
+			var firstPoint=planarCoorSyst(x,y),
+				secondPoint=planarCoorSyst(x2,y2),
+				thirdPoint=planarCoorSyst(x3,y3);
+			function lineOfTwoPoints(point1,point2){
+				return{
+					point1:point1,
+					point2:point2,
+					distance:function wayFromTwoPoints(){
+								var result=0;
+								return result=Math.sqrt((Math.pow((this.point2.xPoint-this.point1.xPoint),2))+(Math.pow((this.point2.yPoint-this.point1.yPoint),2)));
+							}
+				}
+			}
+			var lineOneToTwo=lineOfTwoPoints(firstPoint,secondPoint),
+				lineOnetoThree=lineOfTwoPoints(firstPoint,thirdPoint),
+				lineTwoToThree=lineOfTwoPoints(secondPoint,thirdPoint);
+			function TriangleOrNot(a,b,c){
+				if (a<=(b+c)) {
+					if (b<=(a+c)) {
+						if (c<=(b+a)) {
+							return "Yes!"
+						};
+					}
+				}
+				else{
+					return "No!"
+				};
+			}
+			function writeData(){
+				jsConsole.writeLine("The distance between point one and two is "+lineOneToTwo.distance());
+				jsConsole.writeLine("The distance between point one and three is "+lineOnetoThree.distance());
+				jsConsole.writeLine("The distance between point two and three is "+lineTwoToThree.distance()+"<br> Is there a possibility those 3 points make triangle? Answar : "+TriangleOrNot(lineOneToTwo.distance(),lineTwoToThree.distance(),lineOnetoThree.distance()));
+			}
+			writeData();
+		}
+	</script>
+</body>
+</html>

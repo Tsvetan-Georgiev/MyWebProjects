@@ -1,0 +1,40 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Homework 6-3</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<button onclick="onButtonClicked()" style="margin-left:1%">result</button>
+	<div id="js-console" style="margin-left:1%;margin-top:1%"></div>
+	<script src="scripts/js-console.js"></script>
+	<script> 
+		function onButtonClicked(){
+			function deepCopy(copy,paste){
+				if (paste==typeof Object) {
+					for (var i in copy) {
+					    paste[i] = copy[i];
+					}
+				}
+				else{
+					paste=copy;
+				};
+			}
+			var a=new Object,
+				b,
+				b=new Object;
+				a.typeToString="Object";
+				deepCopy(b,a);
+				b.typeToString="WTF";
+				jsConsole.writeLine(a.typeToString);
+				a=b;
+				jsConsole.writeLine(a.typeToString);
+			var aLikePrimitive="Object",
+				bLikePrimitive="WTF";
+				deepCopy(bLikePrimitive,aLikePrimitive);
+				b="OMG";
+				jsConsole.writeLine(aLikePrimitive);
+		}
+	</script>
+</body>
+</html>

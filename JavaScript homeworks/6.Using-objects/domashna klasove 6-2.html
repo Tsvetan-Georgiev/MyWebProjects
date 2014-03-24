@@ -1,0 +1,31 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Homework 6-2</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<label for="ElToRemove" style="margin-left:1%;">Enter an element to remove</label>
+	<input type="text" value="" name="k" id="ElToRemove"></input>
+	<button onclick="onButtonClicked()" style="margin-left:1%">result</button>
+	<div id="js-console" style="margin-left:1%;margin-top:1%"></div>
+	<script src="scripts/js-console.js"></script>
+	<script> 
+		jsConsole.writeLine("1,2,1,4,1,3,4,1,111,3,2,1,'1'")
+		function onButtonClicked(){
+			var arr=[1,2,1,4,1,3,4,1,111,3,2,1,"1"],
+				removeThis=jsConsole.readFloat("#ElToRemove");
+			Array.prototype.remove=function(removeEl){
+				for (var i = 0; i < this.length; i++) {
+					if (this[i]===removeEl){
+						this.splice(i,1);
+						i--;
+					}
+				}
+				return this;
+			}
+			jsConsole.writeLine('The new Array is: '+arr.remove(removeThis));
+		}
+	</script>
+</body>
+</html>
