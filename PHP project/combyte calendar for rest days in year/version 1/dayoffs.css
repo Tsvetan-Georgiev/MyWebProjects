@@ -1,0 +1,45 @@
+body{
+	background: #eee;
+}
+div.qnuari{
+	background: lightblue;
+}
+div.fevruari{
+	background: lightgreen;
+}
+div.mart{
+	background: lightblue;
+}
+div.april{
+	background: lightgreen;
+}
+div.mai{
+	background: lightblue;
+}
+div.iuni{
+	background: lightgreen;
+}
+div.iuli{
+	background: lightblue;
+}
+div.avgust{
+	background: lightgreen;
+}
+div.septemvri{
+	background: lightblue;
+}
+div.oktomvri{
+	background: lightgreen;
+}
+div.noemvri{
+	background: lightblue;
+}
+div.dekemvri{
+	background: lightgreen;
+}
+span.month{
+	margin-left: 5%;
+	background: yellow;
+	font-size: 18px;
+	text-align: center;
+}
