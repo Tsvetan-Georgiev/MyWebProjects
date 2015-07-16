@@ -11,7 +11,7 @@
 	<table>
 		<tr>
 			<td>
-				<a href="weeks-go6u.php"><button>Към календара</button></a>
+				<a href="index.php"><button>Към календара</button></a>
 			</td>
 			<td>
 			</td>
@@ -50,7 +50,7 @@
 				Добавяне на дата
 			</td>
 			<td>
-<form name = "newdate" method = "GET" action = "weeks-go6u.php">				
+<form name = "newdate" method = "GET" action = "index.php">				
 				<input type = "number" name = "newday" min = "1" max = "31">
 			</td>
 			<td>
@@ -70,7 +70,7 @@
 				Изтриване на дата
 			</td>
 			<td>
-<form name="deletedate" method="GET" action="weeks-go6u.php">				
+<form name="deletedate" method="GET" action="index.php">				
 				<input type="number" name="deleteday" min="1" max="31">
 			</td>
 			<td>
