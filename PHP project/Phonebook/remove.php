@@ -1,33 +1,29 @@
 <!Doctype html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html;  charset=UTF-8">
-	<title>Телефонен указател</title>
+	<meta http-equiv="Content-Type" content="text/html;  charset=UTF-8"/>
+	<title>
+		Телефонен указател
+	</title>
+	<meta name = "viewport" content="width = device-width, initial-scale = 1">
 	<link rel="stylesheet" type="text/css" href="styles/homepage.css">
+	<link rel="stylesheet" type="text/css" href="styles/bootstrap/css/bootstrap.css">
+	<script type="text/javascript" src="scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="styles/bootstrap/js/bootstrap.js"></script>
 	<script src="scripts/validateForm.js"></script>
 </head>
 <body>
-	<div id="wrapper">
-		<header>
-			<nav>
-				<ul>
-					<li><a href="index.php">Контакти</a></li><li>
-						<a href="newcontact.php">Нов Контакт</a></li><li>
-						<a href="edit.php">Редактиране</a></li><li>
-						<a href="remove.php">Изтриване</a></li>
-				</ul>
-			</nav>
-		</header>
+	<div class="container">
+		<?php
+			include_once ("nav.php");
+		?>
 		<article>
-			<table>
+			<table class="table-hover">
 				<thead>
 						<?php 
-							set_error_handler("customError");
-							function customError($errno, $errstr) {
+							if(isset($_GET['sent'])==NULL){
 							}
-							if($_GET['sent']==NULL){
-							}
-							elseif($_GET['sent']){
+							elseif(isset($_GET['sent'])){
 								echo "<tr><td><h2>Изтриването УСПЕШНО.</h2></tr></td>";
 							}
 							else{
@@ -45,7 +41,7 @@
 						<td>
 							<form name="remove" action="scripts/deleteFromDB.php" method="post" onsubmit="return validateRemove()">
 								<label for="forRemove">Въведете номер за триене</label>
-								<input type="number" id="forRemove" name="forRemove" min="1">
+								<input type="number" id="forRemove" name="forRemove" min="1" autofocus>
 								<br><br>
 								<input type="submit" value="Готово">
 							</form>
@@ -69,9 +65,6 @@
 				</tfoot>
 			</table>
 		</article>
-		<footer>
-			Copyright 2014
-		</footer>
-	</div>
-</body>
-</html>
+		<?php
+		include_once("footer.php");
+		?>

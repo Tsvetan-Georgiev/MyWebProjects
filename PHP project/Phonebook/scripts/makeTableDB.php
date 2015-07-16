@@ -8,14 +8,14 @@ if ($conn->connect_error){
 	die("Connection failed: ".$conn->connect_error);
 }
 //sql to create table
-$sql = "CREATE TABLE Phonebook (
-	id INT(6) UNSIGNED AUTO_INCREMENT=1 PRIMARY KEY,
-	fullname varchar(100) NOT NULL,
-	phonenumber INT(12) NOT NULL,
-	phonenumber2 INT(12),
-	address VARCHAR(50),
+$sql = "CREATE TABLE IF NOT EXISTS Phonebook (
+	id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	fullname VARCHAR(100) NOT NULL,
+	phonenumber VARCHAR(20) NOT NULL,
+	phonenumber2 VARCHAR(20),
+	address VARCHAR(200),
 	email VARCHAR(50),
-	info varchar(200),
+	info VARCHAR(350),
 	reg_date TIMESTAMP
 	)";
 if ($conn->query($sql)===TRUE) {

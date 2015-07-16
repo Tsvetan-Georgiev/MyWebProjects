@@ -7,6 +7,7 @@
 	if ($conn->connect_error){
 		die("Connection failed: ".$conn->connect_error);
 	}
+	mysqli_set_charset( $conn,"UTF8" );
 	$forUpdate=$_POST["forUpdate"];
 	$fullname=$phonenumber=$phonenumber2=$address=$email=$info="";
 	function test_input($data) {

@@ -1,4 +1,5 @@
 <?php 
+	include_once ('test_input_func.php');
 	$servername = "localhost";
 	$username = "tito";
 	$password = "masterkey";
@@ -7,13 +8,8 @@
 	if ($conn->connect_error){
 		die("Connection failed: ".$conn->connect_error);
 	}
+	mysqli_set_charset( $conn,"UTF8" );
 	$fullname=$phonenumber=$phonenumber2=$address=$email=$info="";
-	function test_input($data) {
-	  $data = trim($data);
-	  $data = stripslashes($data);
-	  $data = htmlspecialchars($data);
-	  return $data;
-	}
 	$fullname= test_input($_POST["fullname"]);
 	$phonenumber= test_input($_POST["phonenumber"]);
 	$phonenumber2= $_POST["phonenumber2"];
