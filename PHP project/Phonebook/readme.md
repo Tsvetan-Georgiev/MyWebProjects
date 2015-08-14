@@ -1,8 +1,8 @@
 PHP Phonebook aplication
 Functions:
-  Add contact
-  Edit contact
-  Delete contact
+  1.Add contact
+  2.Edit contact
+  3.Delete contact
 Possibilities:
-  Search
-  Sort
+  1.Search
+  2.Sort
