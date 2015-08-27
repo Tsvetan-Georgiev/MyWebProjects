@@ -285,7 +285,6 @@ SQL;
 		    $o = $r->fetch_assoc();
 		    $o = $o['godina'];
 		    if ( $o !== $getyear ) {
-		    	$o -> free();
 				foreach ($hdays as $key => $value) {
 					$za_bazata=strtotime($key);
 					$sql = <<<SQL
