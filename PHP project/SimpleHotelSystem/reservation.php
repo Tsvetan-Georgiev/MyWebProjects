@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html"  charset="UTF-8"/>
 	<title>
-		Хотелска система
+		Резервация | Хотелска система
 	</title>
 	<meta name = "viewport" content="width = device-width, initial-scale = 1">
 	<link rel="icon" type="image/png" href="images/favicon.ico">
@@ -24,7 +24,7 @@
 			</div>
 		</div>
 		<div class="row">
-	    	<div class = "col-md-3" style="border:1px solid grey;background: #779ECB;">
+	    	<div class = "col-md-4" style="border:1px solid grey;background: #779ECB;">
 	    		<a href="reservation.php" style="color: black; text-decoration: none;">
 		    		<h5>
 		    			<span class="glyphicon glyphicon-phone-alt"></span> Резервация 
@@ -34,7 +34,7 @@
 		    		</p>
 	    		</a>
 	    	</div>
-			<div class = "col-md-3" style="border:1px solid grey;background: #DEA5A4">
+			<div class = "col-md-4" style="border:1px solid grey;background: #DEA5A4">
 				<a href="rooms.php" style="color: black; text-decoration: none;">
 				
 					<h5>
@@ -45,7 +45,7 @@
 					</p>
 				</a>
 			</div>
-			<div class = "col-md-3" style="border:1px solid grey;background: #FFB347">
+			<div class = "col-md-4" style="border:1px solid grey;background: #FFB347">
 				<a href="cashier.php" style="color: black; text-decoration: none;">
 					<h5>
 						<span class="glyphicon glyphicon-euro"></span> Каса
@@ -57,7 +57,7 @@
 			</div>
 		</div>
 		<div class = "row">
-			<div class = "col-md-3" style="border:1px solid grey;background: #FFF284">
+			<div class = "col-md-4" style="border:1px solid grey;background: #FFF284">
 				<a href="clients.php" style="color: black; text-decoration: none;">
 					<h5>
 						<span class="glyphicon glyphicon-user"></span> Клиенти
@@ -67,7 +67,7 @@
 					</p>
 				</a>
 			</div>
-			<div class = "col-md-3" style="border:1px solid grey;background: #A8CFFF">
+			<div class = "col-md-4" style="border:1px solid grey;background: #A8CFFF">
 				<a href="reminders.php" style="color: black; text-decoration: none;">
 					<h5>
 						<span class="glyphicon glyphicon-time"></span> Напомняния
@@ -77,7 +77,7 @@
 					</p>
 				</a>
 			</div>
-			<div class = "col-md-3" style="border:1px solid grey;background: #D881ED">
+			<div class = "col-md-4" style="border:1px solid grey;background: #D881ED">
 				<a href="settings.php" style="color: black; text-decoration: none;">
 					<h5>
 						<span class="glyphicon glyphicon-wrench"></span> Настройки
@@ -86,6 +86,51 @@
 						Опции на стаите
 					</p>
 				</a>
+			</div>
+		</div>
+		<div class = "row">
+			<div class = "col-md-12">
+				<hr>
+			</div>
+		</div>
+		<div class = "row">
+			<div class = "col-md-12">
+				<form role = "form">
+					<div class = "form-group">
+						<label for = "old-friends"> Стари клиенти</label>
+						<select class = "form-control  input-lg" id = "old-friends">
+							<option>1</option>
+						</select>
+					</div>
+					<div class = "form-group">
+						<div class = "col-md-6">
+							<label for = "from-date">
+								От дата
+							</label>
+							<input type = "date" class = "form-control input-lg" id = "from-date">
+						</div>
+						<div class = "col-md-6">
+							<label for = "to-date">
+								До дата
+							</label>
+							<input type = "date" class = "form-control input-lg" id = "to-date">
+						</div>
+					</div>
+					<div class = "form-group">
+						<label for = "cust-names">
+							Трите имена
+						</label>
+						<input type = "text" class = "form-control input-lg" id = "cust-names" placeholder="Въвеждане на имена">
+					</div>
+					<div class = "checkbox">
+						<label>
+							<input type = "checkbox">
+						</label>
+					</div>
+					<button type = "submit" class = "btn btn-default">
+						<span class="glyphicon glyphicon-ok"></span> Резервация
+					</button>
+				</form>
 			</div>
 		</div>
 	</div>
