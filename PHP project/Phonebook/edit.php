@@ -41,7 +41,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td>
+						<td class = "pos_up">
 							<form name="edit" action="scripts/updateDB.php" method="post" onsubmit="return validateEdit()">
 								<fieldset>
 								<legend>Редактиране на контакт</legend>

@@ -38,7 +38,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td>
+						<td class = "pos_up">
 							<form name="remove" action="scripts/deleteFromDB.php" method="post" onsubmit="return validateRemove()">
 								<label for="forRemove">Въведете номер за триене</label>
 								<input type="number" id="forRemove" name="forRemove" min="1" autofocus>
