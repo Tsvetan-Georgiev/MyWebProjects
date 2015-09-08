@@ -8,127 +8,106 @@
 	<meta name = "viewport" content="width = device-width, initial-scale = 1">
 	<link rel="icon" type="image/png" href="images/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="index.css">
-	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"> 
-	<script type="text/javascript" src="scripts/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="scripts/jquery-ui.css"> 
+	<script type="text/javascript" src="scripts/external/jquery/jquery.js"></script>
+	<script type="text/javascript" src="scripts/jquery-ui.js"></script>
+	<script type="text/javascript" src="scripts/jquery.ui.datepicker-bg.js"></script>
 	<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+	<script>
+		$(function() {
+			$( "#from" ).datepicker({
+				defaultDate: "+1w",
+				changeMonth: false,
+				numberOfMonths: 2,
+				onClose: function( selectedDate ) {
+				$( "#to" ).datepicker( "option", "minDate", selectedDate );
+				}
+			});
+			$( "#to" ).datepicker({
+				defaultDate: "+1w",
+				changeMonth: false,
+				numberOfMonths: 2,
+				onClose: function( selectedDate ) {
+					$( "#from" ).datepicker( "option", "maxDate", selectedDate );
+				}
+    		});
+		});
+	</script>
 </head>
 <body>
 	<div class = "container">
-		<div class="row">
-			<div class = "col-md-12" >
-				<a href="index.php" style="color: black; text-decoration: none;">
-					<h2>
-						<span class="glyphicon glyphicon-home"></span> SHS 
-					</h2>
-				</a>
-			</div>
-		</div>
-		<div class="row">
-	    	<div class = "col-md-4" style="border:1px solid grey;background: #779ECB;">
-	    		<a href="reservation.php" style="color: black; text-decoration: none;">
-		    		<h5>
-		    			<span class="glyphicon glyphicon-phone-alt"></span> Резервация 
-		    		</h5>
-		    		<p style = "display: none;">
-		    			Щракни за запазване
-		    		</p>
-	    		</a>
-	    	</div>
-			<div class = "col-md-4" style="border:1px solid grey;background: #DEA5A4">
-				<a href="rooms.php" style="color: black; text-decoration: none;">
-				
-					<h5>
-						<span class="glyphicon glyphicon-bed"></span> Стаи
-					</h5>
-					<p style = "display: none;">
-						Състояние на стаите
-					</p>
-				</a>
-			</div>
-			<div class = "col-md-4" style="border:1px solid grey;background: #FFB347">
-				<a href="cashier.php" style="color: black; text-decoration: none;">
-					<h5>
-						<span class="glyphicon glyphicon-euro"></span> Каса
-					</h5>
-					<p style = "display: none;">
-						Отчетност и справки
-					</p>
-				</a>
-			</div>
-		</div>
-		<div class = "row">
-			<div class = "col-md-4" style="border:1px solid grey;background: #FFF284">
-				<a href="clients.php" style="color: black; text-decoration: none;">
-					<h5>
-						<span class="glyphicon glyphicon-user"></span> Клиенти
-					</h5>
-					<p style = "display: none;">
-						Списък с клиенти
-					</p>
-				</a>
-			</div>
-			<div class = "col-md-4" style="border:1px solid grey;background: #A8CFFF">
-				<a href="reminders.php" style="color: black; text-decoration: none;">
-					<h5>
-						<span class="glyphicon glyphicon-time"></span> Напомняния
-					</h5>
-					<p style = "display: none;">
-						Събития и записки
-					</p>
-				</a>
-			</div>
-			<div class = "col-md-4" style="border:1px solid grey;background: #D881ED">
-				<a href="settings.php" style="color: black; text-decoration: none;">
-					<h5>
-						<span class="glyphicon glyphicon-wrench"></span> Настройки
-					</h5>
-					<p style = "display: none;">
-						Опции на стаите
-					</p>
-				</a>
-			</div>
-		</div>
-		<div class = "row">
-			<div class = "col-md-12">
-				<hr>
-			</div>
-		</div>
+		<?php
+			include_once("parts/menu.php");
+		?>
 		<div class = "row">
 			<div class = "col-md-12">
 				<form role = "form">
 					<div class = "form-group">
-						<label for = "old-friends"> Стари клиенти</label>
+						<label for = "old-friends">
+							<p class = "lead">
+								Стари клиенти
+							</p>
+						</label>
 						<select class = "form-control  input-lg" id = "old-friends">
 							<option>1</option>
 						</select>
 					</div>
 					<div class = "form-group">
 						<div class = "col-md-6">
-							<label for = "from-date">
-								От дата
+							<label for = "from">
+								<p class = "lead">
+									От дата
+								</p>
 							</label>
-							<input type = "date" class = "form-control input-lg" id = "from-date">
+							<input type="text" class = "form-control input-lg" id="from" placeholder="Начална дата">
 						</div>
 						<div class = "col-md-6">
-							<label for = "to-date">
-								До дата
+							<label for = "to">
+								
+								<p class = "lead">
+									До дата
+								</p>
 							</label>
-							<input type = "date" class = "form-control input-lg" id = "to-date">
+							<input type = "text" class = "form-control input-lg" id = "to" placeholder="Крайна дата">
 						</div>
 					</div>
 					<div class = "form-group">
-						<label for = "cust-names">
-							Трите имена
+						<label for = "free-room">
+							<p class = "lead">
+								Стая
+							</p>
 						</label>
-						<input type = "text" class = "form-control input-lg" id = "cust-names" placeholder="Въвеждане на имена">
+						<input type = "text" class = "form-control input-lg" id = "free-room">
+					</div>
+					<div class = "form-group">
+						<!-- <div class = "col-sm-10"> -->
+							<label for = "cust-names">
+								<p class = "lead">
+									Трите имена
+								</p>
+							</label>
+							<input type = "text" class = "form-control input-lg" id = "cust-names" placeholder = "Въвеждане на имена">
+						<!-- </div> -->
+						<!-- <div class = "col-sm-2"> -->
+							<label for = "price">
+								<p class = "lead">
+									Цена
+								</p>
+							</label>
+							<input type = "number" class = "form-control input-lg" id = "price" placeholder = "Лева" min = "0">
+						<!-- </div> -->
 					</div>
 					<div class = "checkbox">
 						<label>
-							<input type = "checkbox">
+							<input type = "checkbox">Ала бала
 						</label>
 					</div>
 					<button type = "submit" class = "btn btn-default">
-						<span class="glyphicon glyphicon-ok"></span> Резервация
+						<p class = "lead">
+							<span class="glyphicon glyphicon-ok"></span>
+							Резервация
+						</p>
 					</button>
 				</form>
 			</div>
