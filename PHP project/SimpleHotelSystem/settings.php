@@ -9,158 +9,120 @@
 	<link rel="icon" type="image/png" href="images/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="index.css">
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="scripts/jquery-ui.css"> 
-	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" type="text/css" href="scripts/jquery-ui.css">
+  <script type="text/javascript" src = "scripts/external/jquery/jquery.js"></script>
 	<script type="text/javascript" src="scripts/jquery-ui.js"></script>
 	<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
-
-
-<style>
-    body { font-size: 62.5%; }
-    label, input { display:block; }
-    input.text { margin-bottom:12px; width:95%; padding: .4em; }
-    fieldset { padding:0; border:0; margin-top:25px; }
-    h1 { font-size: 1.2em; margin: .6em 0; }
-    div#users-contain { width: 350px; margin: 20px 0; }
-    div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
-    div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
-    .ui-dialog .ui-state-error { padding: .3em; }
-    .validateTips { border: 1px solid transparent; padding: 0.3em; }
-  </style>
-	<script>
+  <script>
   $(function() {
-    var dialog, form,
- 
-      // From http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-%28type=email%29
-      emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
-      name = $( "#name" ),
-      email = $( "#email" ),
-      password = $( "#password" ),
-      allFields = $( [] ).add( name ).add( email ).add( password ),
-      tips = $( ".validateTips" );
- 
-    function updateTips( t ) {
-      tips
-        .text( t )
-        .addClass( "ui-state-highlight" );
-      setTimeout(function() {
-        tips.removeClass( "ui-state-highlight", 1500 );
-      }, 500 );
-    }
- 
-    function checkLength( o, n, min, max ) {
-      if ( o.val().length > max || o.val().length < min ) {
-        o.addClass( "ui-state-error" );
-        updateTips( "Length of " + n + " must be between " +
-          min + " and " + max + "." );
-        return false;
-      } else {
-        return true;
-      }
-    }
- 
-    function checkRegexp( o, regexp, n ) {
-      if ( !( regexp.test( o.val() ) ) ) {
-        o.addClass( "ui-state-error" );
-        updateTips( n );
-        return false;
-      } else {
-        return true;
-      }
-    }
- 
-    function addUser() {
-      var valid = true;
-      allFields.removeClass( "ui-state-error" );
- 
-      valid = valid && checkLength( name, "username", 3, 16 );
-      valid = valid && checkLength( email, "email", 6, 80 );
-      valid = valid && checkLength( password, "password", 5, 16 );
- 
-      valid = valid && checkRegexp( name, /^[a-z]([0-9a-z_\s])+$/i, "Username may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
-      valid = valid && checkRegexp( email, emailRegex, "eg. ui@jquery.com" );
-      valid = valid && checkRegexp( password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
- 
-      if ( valid ) {
-        $( "#users tbody" ).append( "<tr>" +
-          "<td>" + name.val() + "</td>" +
-          "<td>" + email.val() + "</td>" +
-          "<td>" + password.val() + "</td>" +
-        "</tr>" );
-        dialog.dialog( "close" );
-      }
-      return valid;
-    }
- 
-    dialog = $( "#dialog-form" ).dialog({
+    $( "#dialog" ).dialog({
       autoOpen: false,
-      height: 300,
-      width: 350,
-      modal: true,
-      buttons: {
-        "Create an account": addUser,
-        Cancel: function() {
-          dialog.dialog( "close" );
-        }
+      show: {
+        effect: "clip",
+        duration: 700
       },
-      close: function() {
-        form[ 0 ].reset();
-        allFields.removeClass( "ui-state-error" );
+      hide: {
+        effect: "scale",
+        duration: 700
       }
     });
- 
-    form = dialog.find( "form" ).on( "submit", function( event ) {
-      event.preventDefault();
-      addUser();
+    $( "#create-room" ).click(function() {
+      $( "#dialog" ).dialog( "open" );
+      });
     });
- 
-    $( "#create-user" ).button().on( "click", function() {
-      dialog.dialog( "open" );
-    });
-  });
   </script>
 
 </head>
 <body>
 	<div class = "container">
+
 		<?php
 			include_once("parts/menu.php");
 		?>
-		<p class = "lead">
-			Налични стаи
-		</p>
-		<div class = "row">
+    <div class = "row">
 
-			<div class = "col-md-4">
-								<div id="dialog-form" title="Create new user">
-								  <p class="validateTips">All form fields are required.</p>
- 
-								  <form>
-								    <fieldset>
-								      <label for="name">Name</label>
-								      <input type="text" name="name" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all">
-								      <label for="email">Email</label>
-								      <input type="text" name="email" id="email" value="jane@smith.com" class="text ui-widget-content ui-corner-all">
-								      <label for="password">Password</label>
-								      <input type="password" name="password" id="password" value="xxxxxxx" class="text ui-widget-content ui-corner-all">
-								 
-								      <!-- Allow form submission with keyboard without duplicating the dialog button -->
-								      <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
-								    </fieldset>
-								  </form>
-								</div>	
-				<button id="create-user" class = "btn btn-default">
+  		<p class = "lead">
+  			Стаи
+  		</p>
+    </div>
+
+    <hr>
+			<div id="dialog" title="Създаване на стая">
+
+			  <p class="validateTips">Всички полета са задължителни.</p>
+			  <form role = "form">
+          <div class = "form-group">
+
+            <label for="room-heading">Име на стаята</label>
+            <input type="text" name="room-heading" id="room-heading" class="text ui-widget-content ui-corner-all form-control">
+            <label for="floor">Етаж</label>
+            <input type="number" name="floor" id="floor" class="text ui-widget-content ui-corner-all form-control" min = "1" max = "2">
+            <label for="num-beds">Брой легла</label>
+            <input type="number" name="num-beds" id="num-beds" class="text ui-widget-content ui-corner-all form-control" min = "1" max = "8">
+          </div>
+
+          <button type = "submit" class = "btn btn-default">
+            <p class = "lead">
+              <span class="glyphicon glyphicon-ok"></span>
+              Готово
+            </p>
+          </button>
+			  </form>
+			</div>
+    <div class = "row">
+
+      <div class = "col-md-4">
+				<button id="create-room" class = "btn btn-default">
 					<span class="glyphicon glyphicon-plus"></span>
 					Добавяне на стая
 				</button>
-				
 			</div>
-			<div class = "col-md-4"></div>
-			<div class = "col-md-4"></div>
+
+			<div class = "col-md-4">
+        <button id="create-room" class = "btn btn-default">
+          <span class="glyphicon glyphicon-pencil"></span>
+          Редактиране на стая
+        </button>
+      </div>
+
+			<div class = "col-md-4">
+        <button id="create-room" class = "btn btn-default">
+          <span class="glyphicon glyphicon-remove"></span>
+          Изтриване на стая
+        </button>
+      </div>
 		</div>
-		<div></div>
-		Редактиране на стая
-		Изтриване на стая
+
+    <hr>
+    <div class = "row">
+
+      <p class = "lead">
+        Клиенти
+      </p>
+    </div>  
+
+    <hr>
+    <div class = "row">
+      <div class = "col-md-4">
+
+
+      </div>
+
+      <div class = "col-md-4">
+
+        <button id="create-room" class = "btn btn-default">
+          <span class="glyphicon glyphicon-pencil"></span>
+          Редактиране име на клиент
+        </button>
+      </div>
+      <div class = "col-md-4">
+
+
+      </div>
+
+    </div>
+
 	</div>
+
 </body>
 </html>
