@@ -35,49 +35,40 @@
 	if (isset($_GET["generate"])) {
 		$new = $_GET["generate_new"];
 		$old = $_GET["generate_old"];
-?>
-<?php
+		include "script/conn.php";
 		if ($old > 0) {
 ?>
 
-	<form>
+	<form role = "form" name = "delivery_old" id = "delivery_old" method = "POST">
 		<fieldset>
 			<legend>Доставка</legend>
 <?php
 				for ($i=0; $i < $old; $i++) { 
 			echo '
 					<label for = "store_item">Съществуващи артикули</label>
-					<select type = "text" class = "form-control input-lg" id = "store_item" name = "store_item">';
-?>
-								<?php
-
-	// 								include_once "scripts/conn.php";
-	// 								$q = <<<SQL
-	// 									SELECT * FROM rooms
-	// 									WHERE ID!="0"
-	// 									AND busy = "0"
-	// SQL;
-	// 								$result = $conn->query($q);
-	// 								 if ($result->num_rows > 0) {
-	// 									while($row = $result->fetch_assoc()){
-	// 										$room_ID = $row["ID"];
-	// 										$room_name = $row["title"];
-	// 										$room_floor = $row["floor"];
-	// 										$room_beds = $row["beds"];
-	// 										echo "<option value = '$room_ID'>".$room_ID.". ".$room_name."; етаж ".$room_floor."; легла ".$room_beds."</option>";
-	// 									}
-	// 								}
-	// 								else{
-	// 									echo "<option value ='0'>Все още няма въведени стаи.</option>";
-	// 								}
-	// 								$conn -> close();
-
-					?>
-<?php
+					<select type = "text" class = "form-control input-lg" id = "store_item" name = "store_item'.$i.'">';
+									$q = <<<SQL
+										SELECT * FROM store
+										WHERE ID!="0"
+SQL;
+									$result = $conn -> query($q);
+									 if ($result ->num_rows > 0) {
+										while($row = $result->fetch_assoc()){
+											$item_ID = $row["ID"];
+											$item_name = $row["item"];
+											$measure = $row["measure"];
+											$amount = $row["amount"];
+											echo "<option value = '$item_ID'>".$item_ID.". ".$item_name."; ".$amount." ".$measure."  </option>";
+										}
+									}
+									else{
+										echo "<option value ='0'>Все още няма въведени артикули.</option>";
+									}
+									
 			echo '
 					</select>
 					<label for = "peaces_old'.$i.'">Брой</label>
-					<input type = "number" class = "form-control input-lg" id = "peaces_old'.$i.'" name = "peaces_old'.$i.'">
+					<input type = "number" class = "form-control input-lg" id = "peaces_old'.$i.'" name = "peaces_old'.$i.'" step="any">
 					<hr>';
 				}
 				echo '
@@ -93,11 +84,24 @@
 		</fieldset>
 <?php
 		}
+		if (isset($_POST["delivery_old"])) {
+			for ($i=0; $i < $old; $i++) { 
+  			$item_ID[$i] = $_POST["store_item".$i];
+  			$peaces[$i] = $_POST["peaces_old".$i];
+  			$q = <<<SQL
+  			UPDATE store
+  			SET amount = amount + '$peaces[$i]'
+			WHERE ID = "$item_ID[$i]"
+SQL;
+			$conn -> query($q);
+  			}
+		}
+				$conn -> close();
 ?>
 <?php
 	if ($new > 0) {
 ?>
-	<form>
+	<form role = "form" name = "delivery" id = "delivery" method = "POST">
 		<fieldset>
 			<legend>Доставка</legend>
 <?php
@@ -113,7 +117,7 @@
 				<br>
 				<br>
 				<label for = "peaces'.$i.'">Брой</label>
-				<input type = "number" class = "form-control input-lg" id = "peaces'.$i.'" name = "peaces'.$i.'">
+				<input type = "number" class = "form-control input-lg" id = "peaces'.$i.'" name = "peaces'.$i.'"  step="any">
 				<br>
 				<br>
 				<hr>
@@ -133,6 +137,22 @@
 		</fieldset>
 	</form>
 <?php
+	}
+	if (isset($_POST["delivery"])) {
+  		for ($i=0; $i < $new; $i++) { 
+  			$new_item[$i] = $_POST["new_item".$i];
+  			$measure[$i] = $_POST["measure".$i];
+  			$peaces[$i] = $_POST["peaces".$i];
+  			echo $new_item[$i];
+  			$q = <<<SQL
+  			INSERT INTO store
+  			( item, measure, amount)
+			VALUES
+			('$new_item[$i]', '$measure[$i]', '$peaces[$i]')
+SQL;
+			$conn -> query($q);
+  		}
+		$conn -> close();
 	}
 }
 ?>
