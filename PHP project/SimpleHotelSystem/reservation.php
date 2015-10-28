@@ -79,7 +79,7 @@ SQL;
 								SELECT ID,title,floor,beds FROM rooms
 SQL;
 								$res_list = $conn -> query($q);
-								echo "<div id = 'roomsInfo'>";
+								echo "<div id = 'roomsInfo' style = 'display:none'>";
 								while($row = $res_list -> fetch_assoc()){
 									$roomid = $row["ID"];
 									$roomname = $row["title"].", ".$row["floor"]."ет., ".$row["beds"]." легла";

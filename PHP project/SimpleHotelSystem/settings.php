@@ -30,6 +30,22 @@
       $( "#dialog" ).dialog( "open" );
       });
     });
+  $(function() {
+    $( "#dialog3" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "clip",
+        duration: 700
+      },
+      hide: {
+        effect: "scale",
+        duration: 700
+      }
+    });
+    $( "#delete-room-open" ).click(function() {
+      $( "#dialog3" ).dialog( "open" );
+      });
+    });
   </script>
 
 </head>
@@ -47,10 +63,11 @@
     </div>
 
     <hr>
-			<div id="dialog" title="Създаване на стая">
+<!-- Създаване на стая -->
+      <div id="dialog" title="Създаване на стая">
 
-			  <p class="validateTips">Всички полета са задължителни.</p>
-			  <form role = "form" id = "add-room" name = "add-room" method = "GET">
+        <p class="validateTips">Всички полета са задължителни.</p>
+        <form role = "form" id = "add-room" name = "add-room" method = "GET">
           <div class = "form-group">
 
             <label for="room-heading">Име на стаята</label>
@@ -67,10 +84,8 @@
               Готово
             </p>
           </button>
-			  </form>
-        
-        <?php 
-
+        </form>        
+        <?php
           if (isset($_GET["add-room"])) {
             $room_title = $_GET["room-heading"];
             $room_floor = $_GET["floor"];
@@ -82,15 +97,17 @@
 SQL;
             $conn -> query($q);
             $conn -> close();
+            echo '<script> location.replace("settings.php"); </script>';
           }
         ?>
-
-			</div>
+      </div>
+<!-- Създаване на стая -->
+<!-- Триене на стая -->
       <div id = "dialog3" title = "Изтриване на стая">
         <form role = "form" id = "delete-room" name = "delete-room" method = "GET">
           <div class = "form-group">
             <label for = "">Стая за изтриване</label>
-            <select type = "text" class = "form-control input-lg" id = "delete-room-choice" name = "delete-room">
+            <select type = "text" class = "form-control input-lg" id = "delete-room-choice" name = "delete-room-choice">
               <?php
 
                  include_once "scripts/conn.php";
@@ -111,7 +128,6 @@ SQL;
                  else{
                    echo "<option value ='0'>Все още няма въведени стаи.</option>";
                  }
-                 $conn -> close();
 
                 ?>
             </select>
@@ -125,28 +141,29 @@ SQL;
         </form>
         <?php 
 
-          if (isset($_GET["add-room"])) {
-            $room_id_delete = $_GET["delete-room"];
-            include_once "scripts/conn.php";
+          if (isset($_GET["delete-room"])) {
+            $room_id_delete = $_GET["delete-room-choice"];
             $q = <<< SQL
               DELETE from rooms
               WHERE ID = "$room_id_delete"
 SQL;
             $conn -> query($q);
             $conn -> close();
+            echo '<script> location.replace("settings.php"); </script>';
           }
         ?>
       </div>
+<!-- Триене на стая -->
     <div class = "row">
 
       <div class = "col-md-4">
-				<button id="create-room" class = "btn btn-default">
-					<span class="glyphicon glyphicon-plus"></span>
-					Добавяне на стая
-				</button>
-			</div>
+        <button id="create-room" class = "btn btn-default">
+          <span class="glyphicon glyphicon-plus"></span>
+          Добавяне на стая
+        </button>
+      </div>
 
-			<div class = "col-md-4">
+      <div class = "col-md-4">
         <button id="create-room" class = "btn btn-default">
           <span class="glyphicon glyphicon-pencil"></span>
           Редактиране на стая
@@ -154,7 +171,7 @@ SQL;
       </div>
 
 			<div class = "col-md-4">
-        <button id="create-room" class = "btn btn-default">
+        <button id="delete-room-open" class = "btn btn-default">
           <span class="glyphicon glyphicon-remove"></span>
           Изтриване на стая
         </button>
