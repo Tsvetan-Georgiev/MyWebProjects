@@ -40,12 +40,12 @@
 		<?php
 			include_once("parts/menu.php");
 		?>
-							<?php // array for free rooms at date after today
+							<?php 
 								$now = strtotime(date("Y-m-d"));
 								include_once "scripts/conn.php";
 								$q = <<<SQL
 									SELECT * FROM reservation
-									WHERE fromDate > "$now";
+									WHERE fromDate >= "$now";
 SQL;
 								$res_list = $conn -> query($q);
 								$res_future = array();
@@ -62,6 +62,7 @@ SQL;
 										)
 									);
 								}
+// array for free rooms at date after today
 								echo "<div id = 'busyrooms' style = 'display:none'>";
 									foreach ($res_future as $key => $value) {
 										foreach ($value as $key2 => $value2) {
@@ -73,6 +74,7 @@ SQL;
 										}
 									}
 								echo "</div>";
+//all rooms and info
 								$q = <<<SQL
 								SELECT ID,title,floor,beds FROM rooms
 SQL;
@@ -96,7 +98,8 @@ SQL;
 						</label>
 						<hr>
 						<select class = "form-control  input-lg" id = "old-friends" name = "old-friends">
-							<?php // option for the clients
+							<?php 
+// option for the clients
 
 								include_once "scripts/conn.php";
 								$q = <<<SQL
@@ -152,30 +155,6 @@ SQL;
 						</label>
 						<hr>
 						<select type = "text" class = "form-control input-lg" id = "free-room" name = "free-room">
-							<?php
-
-// 								include_once "scripts/conn.php";
-// 								$q = <<<SQL
-// 									SELECT * FROM rooms
-// 									WHERE ID!="0"
-// 									AND busy = "0"
-// SQL;
-// 								$result = $conn->query($q);
-// 								 if ($result->num_rows > 0) {
-// 									while($row = $result->fetch_assoc()){
-// 										$room_ID = $row["ID"];
-// 										$room_name = $row["title"];
-// 										$room_floor = $row["floor"];
-// 										$room_beds = $row["beds"];
-// 										echo "<option value = '$room_ID'>".$room_ID.". ".$room_name."; етаж ".$room_floor."; легла ".$room_beds."</option>";
-// 									}
-// 								}
-// 								else{
-// 									echo "<option value ='0'>Все още няма въведени стаи.</option>";
-// 								}
-// 								$conn -> close();
-
-							?>
 						</select>
 					</div>
 					<div class = "form-group">
@@ -212,7 +191,7 @@ SQL;
 							include "scripts/conn.php";
 							$res_from = $_POST['res-from'];
 							$res_from = strtotime($res_from);
-							//echo "От дата ".$res_from;
+							// echo "От дата ".$res_from;
 							if ($_POST['res-to'] !== '') {
 								$res_to = $_POST['res-to'];
 								$res_to = strtotime($res_to);
@@ -223,14 +202,14 @@ SQL;
 							}
 							//echo "<br>До дата ".$res_to;
 							$room = $_POST['free-room'];
-							//echo "<br>Стая ".$room;
+							// echo "<br>Стая ".$room;
 							if ($_POST['cust-names'] != null) {
 								$new_c = $_POST['cust-names'];
-								//echo "<br> Нов клиент ".$new_c;
+								// echo "<br> Нов клиент ".$new_c;
 							}
 							if ($_POST['old-friends'] != "0") {
 								$old_friend = $_POST['old-friends'];
-								//echo "<br>Стар клиент ".$old_friend;
+								// echo "<br>Стар клиент ".$old_friend;
 								$q = <<<SQL
 								UPDATE clients
 								SET 
@@ -257,10 +236,10 @@ SQL;
 								$old_friend = $conn -> query($q);
 								$old_friend = $old_friend -> fetch_assoc();
 								$old_friend = $old_friend["ID"];
-								echo '<br> old friend: '.$old_friend;
+								// echo '<br> old friend: '.$old_friend;
 							}
 							$price = $_POST['price'];
-							//echo "<br> Пари ".$price;
+							// echo "<br> Пари ".$price;
 							$q = <<<SQL
 								INSERT INTO reservation 
 								(price,roomNumber,clientNumber,fromDate,toDate)
@@ -285,15 +264,8 @@ SQL;
 		</div>
 	</div>
 	<script type="text/javascript">
-	//добавя опцията за свободната стая
-		function createoption(number,text){
-			select = document.getElementById('free-room');
-			var opt = document.createElement('option');
-			opt.value = number;
-			opt.innerHTML = text;
-			select.appendChild(opt);
-		}
-		function freerooms(){	
+
+		function freerooms(){
 //взима стойността на от дата
 			var dateFrom = document.getElementById("from").value,
 			dateTo = document.getElementById("to").value,
@@ -301,11 +273,14 @@ SQL;
 			roomName = document.getElementById("roomsInfo").innerHTML,
 //прави данните на масив. всяка стая е в отделен елемент
 			roomNameArray = roomName.split(";"),
+			loop = roomNameArray.length - 1,
 			free_rooms,
 			dateFrom1,dateTo1,
 //събира данните за резервации от сега нататък от php
 			phpReportRooms = document.getElementById("busyrooms").innerHTML,
 			arrayOfBusyRooms;
+//маха излишният "" елемент
+			roomNameArray.splice(loop,1);
 			free_rooms = 0;
 //същата логика като в roomInfo, само че за заетите стаи след сегашна дата
 			arrayOfBusyRooms = phpReportRooms.split(";");
@@ -314,12 +289,13 @@ SQL;
 			dateFrom1 = dateFrom[2].concat(".",dateFrom[1],".",dateFrom[0]);
 //преобразуване към линуксвреме
 			dateFrom1 = new Date(dateFrom1).getTime() / 1000;
+			dateFrom1 = dateFrom1 + 3600;
 //при въведена до дата преобразуване на до дата
-			console.log(roomNameArray);
 			if (typeof dateTo !== 'undefined' && dateTo !== null && dateTo !== "") {
 				dateTo = dateTo.split(".");
 				dateTo1 = dateTo[2].concat(".",dateTo[1],".",dateTo[0]); 
-				dateTo1 =new Date(dateTo1).getTime() / 1000;
+				dateTo1 = new Date(dateTo1).getTime() / 1000;
+				dateTo1 = dateTo1 + 3600
 			};
 //превъртане на бъдещите резервации
 			for (var i = arrayOfBusyRooms.length - 1; i >= 0; i--) {
@@ -329,34 +305,69 @@ SQL;
 					roomNumber = room.substr(0,1);
 					room = room.split(",");
 					if (dateTo1 > 0) {
-						
+// при въведени от-до дата влиза само ако има резервация в списъка и маха възможните стаи
 						if (dateFrom1 >= room[1] && dateFrom1 <= room[2] || dateTo1 >= room[1] && dateTo1 <= room[2]) {
-							console.log("Pri vaveden to vliza za zaeta data ",dateFrom1,dateTo1,room[1],room[2],roomNumber);
-							
-						}
-						else{
-							for (var i = 0; i <= roomNameArray.length - 2; i++) {
-								if (typeof roomNameArray[i] !== 'undefined' && roomNameArray[i] !== null) {
-									createoption(i,roomNameArray[i]);
-								}
+							for (var l = 0; l < roomNameArray.length; l++) {
+								var numberForDelete = roomNameArray[l];
+								numberForDelete = numberForDelete.substr(0,1);
+								if (numberForDelete === roomNumber) {
+									roomNameArray.splice(l,1);
+								};
 							};
-						};
+						}
 					}
+
+// при въедена "от" дата влиза и маха от списъкът със стаи заетата
 					else{
 						if (dateFrom1 >= room[1] && dateFrom1 <= room[2]) {
-							console.log(dateFrom1,room[1],roomNumber);
-						}
-						else{
-							for (var i = 0; i <= roomNameArray.length - 2; i++) {
-								if (typeof roomNameArray[i] !== 'undefined' && roomNameArray[i] !== null) {
-									createoption(i,roomNameArray[i]);
-								}
+							for (var l = 0; l < roomNameArray.length; l++) {
+								var numberForDelete = roomNameArray[l];
+								numberForDelete = numberForDelete.substr(0,1);
+								if (numberForDelete === roomNumber) {
+									roomNameArray.splice(l,1);
+								};
 							};
-						};
+						}
 					};
 				};
 			};
+			for (var k = 0; k < loop; k++) {
+				if (typeof roomNameArray[k] !== 'undefined' && roomNameArray[k] !== null) {
+					var j = k;
+						j++;
+					createoption(j,roomNameArray[k]);
+				}
+			}
 		}
+//добавя опцията за свободната стая
+		function createoption(number,text){
+			var select = document.getElementById('free-room');
+			var length = select.options.length;
+			var one = 1;
+				var opt = document.createElement('option');
+				opt.value = number;
+				opt.innerHTML = text;
+			if (length > 0) {
+
+				for (var b = 0; b < length; b++) {
+					if (select.options[b].text) {
+
+						var alibaba = select.options[b].text;
+						var alibaba2 = opt.innerHTML;
+						if(alibaba == alibaba2){
+							var one = 0;
+							break;
+						}
+					};
+				};
+				if (one) {
+					select.appendChild(opt);
+				};
+			}
+			else{
+				select.appendChild(opt);
+			}
+		}		
 	</script>
 </body>
 </html>
