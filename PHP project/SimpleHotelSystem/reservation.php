@@ -45,7 +45,8 @@
 								include_once "scripts/conn.php";
 								$q = <<<SQL
 									SELECT * FROM reservation
-									WHERE fromDate >= "$now";
+									WHERE fromDate >= "$now"
+									OR toDate >= "$now";
 SQL;
 								$res_list = $conn -> query($q);
 								$res_future = array();
@@ -255,6 +256,8 @@ SQL;
 								WHERE ID = "$room"
 SQL;
 							$conn -> query($q);
+							echo "<p class = 'lead'>Успешна резервация!</p>";
+							echo '<script> location.replace("reservation.php"); </script>';
 						}
 
 					?>
@@ -266,47 +269,39 @@ SQL;
 	<script type="text/javascript">
 
 		function freerooms(){
-//взима стойността на от дата
-			var dateFrom = document.getElementById("from").value,
+			clearselect();//изчиства старите опции за стаи
+			var dateFrom = document.getElementById("from").value,//взима стойността на от дата
 			dateTo = document.getElementById("to").value,
-//информация за всяка стая(легла, етаж...)
-			roomName = document.getElementById("roomsInfo").innerHTML,
-//прави данните на масив. всяка стая е в отделен елемент
-			roomNameArray = roomName.split(";"),
-			loop = roomNameArray.length - 1,
+			roomName = document.getElementById("roomsInfo").innerHTML,//информация за всяка стая(легла, етаж...)
+			roomNameArray = roomName.split(";"),//прави данните на масив. всяка стая е в отделен елемент
+			loop,
 			free_rooms,
 			dateFrom1,dateTo1,
-//събира данните за резервации от сега нататък от php
-			phpReportRooms = document.getElementById("busyrooms").innerHTML,
+			phpReportRooms = document.getElementById("busyrooms").innerHTML,//събира данните за резервации от сега нататък от php
 			arrayOfBusyRooms;
-//маха излишният "" елемент
-			roomNameArray.splice(loop,1);
 			free_rooms = 0;
-//същата логика като в roomInfo, само че за заетите стаи след сегашна дата
-			arrayOfBusyRooms = phpReportRooms.split(";");
+			arrayOfBusyRooms = phpReportRooms.split(";");//същата логика като в roomInfo, само че за заетите стаи след сегашна дата
+			loop = arrayOfBusyRooms.length - 1;
+			arrayOfBusyRooms.splice(loop,1);//маха излишният "" елемент
+			loop = roomNameArray.length - 1;
+			roomNameArray.splice(loop,1);
 			dateFrom = dateFrom.split(".");
-// формат подходящ за unixtimestamp
-			dateFrom1 = dateFrom[2].concat(".",dateFrom[1],".",dateFrom[0]);
-//преобразуване към линуксвреме
-			dateFrom1 = new Date(dateFrom1).getTime() / 1000;
+			dateFrom1 = dateFrom[2].concat(".",dateFrom[1],".",dateFrom[0]);// формат подходящ за unixtimestamp
+			dateFrom1 = new Date(dateFrom1).getTime() / 1000;//преобразуване към линуксвреме
 			dateFrom1 = dateFrom1 + 3600;
-//при въведена до дата преобразуване на до дата
-			if (typeof dateTo !== 'undefined' && dateTo !== null && dateTo !== "") {
+			if (typeof dateTo !== 'undefined' && dateTo !== null && dateTo !== "") {//при въведена до дата преобразуване на до дата
 				dateTo = dateTo.split(".");
 				dateTo1 = dateTo[2].concat(".",dateTo[1],".",dateTo[0]); 
 				dateTo1 = new Date(dateTo1).getTime() / 1000;
 				dateTo1 = dateTo1 + 3600
 			};
-//превъртане на бъдещите резервации
-			for (var i = arrayOfBusyRooms.length - 1; i >= 0; i--) {
-//проверка на i елемент в масив със заети стаи
-				if (typeof arrayOfBusyRooms[i] !== 'undefined' && arrayOfBusyRooms[i] !== null) {
+			for (var i = arrayOfBusyRooms.length - 1; i >= 0; i--) {//превъртане на бъдещите резервации
+				if (typeof arrayOfBusyRooms[i] !== 'undefined' && arrayOfBusyRooms[i] !== null) {//проверка на i елемент в масив със заети стаи
 					var roomNumber, room = arrayOfBusyRooms[i];
 					roomNumber = room.substr(0,1);
 					room = room.split(",");
 					if (dateTo1 > 0) {
-// при въведени от-до дата влиза само ако има резервация в списъка и маха възможните стаи
-						if (dateFrom1 >= room[1] && dateFrom1 <= room[2] || dateTo1 >= room[1] && dateTo1 <= room[2]) {
+						if (dateFrom1 >= room[1] && dateFrom1 <= room[2] || dateTo1 >= room[1] && dateTo1 <= room[2]) {// при въведени от-до дата влиза само ако има резервация в списъка и маха възможните стаи
 							for (var l = 0; l < roomNameArray.length; l++) {
 								var numberForDelete = roomNameArray[l];
 								numberForDelete = numberForDelete.substr(0,1);
@@ -316,9 +311,7 @@ SQL;
 							};
 						}
 					}
-
-// при въедена "от" дата влиза и маха от списъкът със стаи заетата
-					else{
+					else{// при въедена "от" дата влиза и маха от списъкът със стаи заетата
 						if (dateFrom1 >= room[1] && dateFrom1 <= room[2]) {
 							for (var l = 0; l < roomNameArray.length; l++) {
 								var numberForDelete = roomNameArray[l];
@@ -331,22 +324,22 @@ SQL;
 					};
 				};
 			};
+			loop = roomNameArray.length;
 			for (var k = 0; k < loop; k++) {
 				if (typeof roomNameArray[k] !== 'undefined' && roomNameArray[k] !== null) {
-					var j = k;
-						j++;
+					var j = roomNameArray[k];
+					j = j.substr(0,1);
 					createoption(j,roomNameArray[k]);
 				}
 			}
 		}
-//добавя опцията за свободната стая
-		function createoption(number,text){
+		function createoption(number,text){//добавя опцията за свободната стая
 			var select = document.getElementById('free-room');
 			var length = select.options.length;
 			var one = 1;
-				var opt = document.createElement('option');
-				opt.value = number;
-				opt.innerHTML = text;
+			var opt = document.createElement('option');
+			opt.value = number;
+			opt.innerHTML = text;
 			if (length > 0) {
 
 				for (var b = 0; b < length; b++) {
@@ -367,7 +360,14 @@ SQL;
 			else{
 				select.appendChild(opt);
 			}
-		}		
+		}
+		function clearselect(){
+			var select = document.getElementById("free-room");
+			var length = select.options.length;
+			for (var c = length - 1; c >= 0; c--) {
+				select.options[c] = null;
+			};
+		}
 	</script>
 </body>
 </html>
