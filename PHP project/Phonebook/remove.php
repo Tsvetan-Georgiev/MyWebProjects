@@ -16,6 +16,8 @@
 	<div class="container">
 		<?php
 			include_once ("nav.php");
+			include_once ("scripts/connect.php");
+			include_once ("scripts/session.php");
 		?>
 		<article>
 			<table class="table-hover">
@@ -38,7 +40,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class = "pos_up">
+						<td>
 							<form name="remove" action="scripts/deleteFromDB.php" method="post" onsubmit="return validateRemove()">
 								<label for="forRemove">Въведете номер за триене</label>
 								<input type="number" id="forRemove" name="forRemove" min="1" autofocus>
@@ -51,7 +53,7 @@
 								<tr>
 									<td><b>Номер</b></td><td><b>Имена</b></td><td><b>Тел.номер</b></td><td><b>Алтернативен номер</b></td><td><b>Адрес</b></td><td><b>Електронна поща</b></td><td><b>Бележка</b></td><td><b>Дата на въвеждане</b></td>
 								</tr>
-									<?php include "scripts/viewDB.php";?>
+									<?php include ("scripts/loginform.php");?>
 							</table>
 						</td>
 					</tr>

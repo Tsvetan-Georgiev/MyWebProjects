@@ -16,6 +16,8 @@
 	<div class="container">
 		<?php
 			include_once ("nav.php");
+			include_once ("scripts/connect.php");
+			include_once ("scripts/session.php");
 		?>
 		<article>
 			<table class = "table-hover">
@@ -41,7 +43,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class = "pos_up">
+						<td>
 							<form name="edit" action="scripts/updateDB.php" method="post" onsubmit="return validateEdit()">
 								<fieldset>
 								<legend>Редактиране на контакт</legend>
@@ -85,7 +87,7 @@
 										Номер
 									</b></td><td><b>Имена</b></td><td><b>Тел.номер</b></td><td><b>Алтернативен номер</b></td><td><b>Адрес</b></td><td><b>Електронна поща</b></td><td><b>Бележка</b></td><td><b>Дата на въвеждане</b></td>
 								</tr>
-									<?php include "scripts/viewDB.php";?>
+									<?php include_once ("scripts/loginform.php");?>
 							</table>
 						</td>
 					</tr>

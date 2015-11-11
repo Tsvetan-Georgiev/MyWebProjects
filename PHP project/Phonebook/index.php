@@ -15,6 +15,9 @@
 	<div class = "container">
 		<?php
 			include_once ("nav.php");
+			include ("scripts/connect.php");
+			include ("scripts/session.php");
+			include_once ("scripts/secure.php");
 		?>
 		<article>
 			<table class="table-hover">
@@ -70,7 +73,9 @@
 						</td>
 						</form>
 					</tr>
-					<?php include "scripts/viewDB.php";?>
+					<?php
+						include_once ('scripts/loginform.php');
+					?>
 				</tbody>
 				<tfoot>
 					<tr>

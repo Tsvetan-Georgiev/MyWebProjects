@@ -1,15 +1,10 @@
 <?php 
-	$servername = "localhost";
-	$username = "tito";
-	$password = "masterkey";
-	$bd = "contactlist";
-	$conn = new mysqli($servername, $username, $password,$bd);
-	if ($conn->connect_error){
-		die("Connection failed: ".$conn->connect_error);
-	}
+	include_once('connect.php');
+	include_once('session.php');
+	$phonebook = $_SESSION['username']."_phonebook";
 	$forDelete=$_POST["forRemove"];
 	if ($forDelete!=null) {
-		$sql = "DELETE FROM Phonebook WHERE id=$forDelete";
+		$sql = "DELETE FROM $phonebook WHERE id=$forDelete";
 	}
 	else{
 		header("location: ../remove.php?sent=false");

@@ -1,14 +1,11 @@
 <?php 
-$servername = "localhost";
-$username = "tito";
-$password = "masterkey";
-$bd = "contactlist";
-$conn = new mysqli($servername, $username, $password,$bd);
-if ($conn->connect_error){
-	die("Connection failed: ".$conn->connect_error);
-}
+include_once ("connect.php");
+include_once ("session.php");
+$user = $username;
+$user = $user."_phonebook";
 //sql to create table
-$sql = "CREATE TABLE IF NOT EXISTS Phonebook (
+$sql = <<< SQL
+CREATE TABLE IF NOT EXISTS $user (
 	id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 	fullname VARCHAR(100) NOT NULL,
 	phonenumber VARCHAR(20) NOT NULL,
@@ -17,13 +14,13 @@ $sql = "CREATE TABLE IF NOT EXISTS Phonebook (
 	email VARCHAR(50),
 	info VARCHAR(350),
 	reg_date TIMESTAMP
-	)";
+	)
+SQL;
 if ($conn->query($sql)===TRUE) {
-	$last_id = $conn->insert_id;
-	echo "Table Phonebook successfully. Last inserted ID is: " . $last_id;
+	echo "<br>";
 }
 else{
-	echo "**** Error creating table: ".$conn->error;
+	echo "**** Грешка при създаване на базата";
 }
 
 $conn->close();

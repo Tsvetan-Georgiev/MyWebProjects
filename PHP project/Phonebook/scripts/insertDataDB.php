@@ -1,23 +1,17 @@
 <?php 
-	include_once ('test_input_func.php');
-	$servername = "localhost";
-	$username = "tito";
-	$password = "masterkey";
-	$bd = "contactlist";
-	$conn = new mysqli($servername, $username, $password,$bd);
-	if ($conn->connect_error){
-		die("Connection failed: ".$conn->connect_error);
-	}
-	mysqli_set_charset( $conn,"UTF8" );
+	include_once ('secure.php');
+	include_once ('connect.php');
+	include_once ('session.php');
 	$fullname=$phonenumber=$phonenumber2=$address=$email=$info="";
-	$fullname= test_input($_POST["fullname"]);
-	$phonenumber= test_input($_POST["phonenumber"]);
+	$fullname= safestrip($_POST["fullname"]);
+	$phonenumber= safestrip($_POST["phonenumber"]);
 	$phonenumber2= $_POST["phonenumber2"];
-	$address= test_input($_POST["address"]);
-	$email= test_input($_POST["email"]);
-	$info= test_input($_POST["info"]);
-	$sql = "ALTER TABLE phonebook AUTO_INCREMENT = 1;";
-	$sql.= "INSERT INTO Phonebook(fullname, phonenumber, phonenumber2, address, email, info)
+	$address= safestrip($_POST["address"]);
+	$email= safestrip($_POST["email"]);
+	$info= safestrip($_POST["info"]);
+	$phonebook = $_SESSION['username']."_phonebook";
+	$sql = "ALTER TABLE $phonebook AUTO_INCREMENT = 1;";
+	$sql.= "INSERT INTO $phonebook(fullname, phonenumber, phonenumber2, address, email, info)
 	VALUES ('$fullname', '$phonenumber', '$phonenumber2', '$address', '$email', '$info')";
 	if ($conn->multi_query($sql)===TRUE) {
 		echo "New record created successfully";
