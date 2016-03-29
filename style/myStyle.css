@@ -1,0 +1,477 @@
+@font-face {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+}
+*,
+*:before,
+*:after {
+  -moz-box-sizing: content-box;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+}
+body div#wrapper {
+  width: 100%;
+}
+body div#wrapper header {
+  width: 100%;
+  float: left;
+  color: #fff;
+  background: #133b44;
+}
+body div#wrapper header div.global {
+  width: 100%;
+  height: 130px;
+  float: left;
+  color: #fff;
+  background: #a3e283;
+}
+body div#wrapper header div.global div.container {
+  width: 940px;
+  margin: 0 auto;
+}
+body div#wrapper header div.global div.container div.left.mainLogo {
+  float: left;
+}
+body div#wrapper header div.global div.container div.left.mainLogo a {
+  display: block;
+  overflow: hidden;
+  width: 229px;
+  height: 1px;
+  padding-top: 67px;
+  margin-top: 25px;
+  background: url("../images/log1.png") center no-repeat;
+}
+body div#wrapper header div.global div.container div.left.mainLogo a:visited {
+  color: #028bff;
+  text-decoration: underline;
+  outline: 0;
+}
+body div#wrapper header div.global div.container div.right.contact {
+  float: right;
+}
+body div#wrapper header div.global div.container div.right.contact button {
+  position: relative;
+  top: 130px;
+  right: 2px;
+  width: 120px;
+  height: 49px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #A3E283;
+  background-color: #133B44;
+  border: none;
+  border-top-left-radius: 50px ;
+  border-top-right-radius: 50px ;
+  display: none;
+}
+body div#wrapper header div.global div.container div.right.contact button:focus {
+  border-radius: 0px;
+  box-shadow: none;
+}
+body div#wrapper header div.global div.container div.right.contact a,
+body div#wrapper header div.global div.container div.right.contact a:visited {
+  color: #028bff;
+  text-decoration: underline;
+  outline: 0;
+}
+body div#wrapper header div.global div.container div.right.contact a p.contact,
+body div#wrapper header div.global div.container div.right.contact a:visited p.contact {
+  display: inline-block;
+  width: 220px;
+  line-height: 24px;
+  margin: 0.4em 0 0 0.2em;
+  padding: 0;
+  color: #002830;
+  font-size: 24px;
+  font-weight: 400;
+  text-align: center;
+}
+body div#wrapper header div.global div.container div.right.contact a ul.icons,
+body div#wrapper header div.global div.container div.right.contact a:visited ul.icons {
+  display: block;
+  margin: 0.2em 0 0 17%;
+  padding: 0;
+}
+body div#wrapper header div.global div.container div.right.contact a ul.icons li.email,
+body div#wrapper header div.global div.container div.right.contact a:visited ul.icons li.email {
+  display: block;
+  float: left;
+  padding: 0;
+  margin: 0 10px;
+  height: 31px;
+  overflow: hidden;
+  width: 33px;
+  background: url("../images/pismo.png") center no-repeat;
+}
+body div#wrapper header div.global div.container div.right.contact a ul.icons li.email span,
+body div#wrapper header div.global div.container div.right.contact a:visited ul.icons li.email span {
+  display: block;
+  padding-top: 31px;
+}
+body div#wrapper header div.global div.container div.right.contact a ul.icons li.chat,
+body div#wrapper header div.global div.container div.right.contact a:visited ul.icons li.chat {
+  display: block;
+  float: left;
+  padding: 0;
+  margin: 0 10px;
+  height: 31px;
+  overflow: hidden;
+  width: 31px;
+  background: url("../images/skype.png") center no-repeat;
+}
+body div#wrapper header div.global div.container div.right.contact a ul.icons li.chat span,
+body div#wrapper header div.global div.container div.right.contact a:visited ul.icons li.chat span {
+  display: block;
+  padding-top: 31px;
+}
+body div#wrapper header div.global div.container div.right.contact a ul.icons li.tel,
+body div#wrapper header div.global div.container div.right.contact a:visited ul.icons li.tel {
+  display: block;
+  padding: 0;
+  margin: 0 10px;
+  height: 31px;
+  overflow: hidden;
+  width: 40px;
+  background: url("../images/tel.png") center no-repeat;
+}
+body div#wrapper header div.global div.container div.right.contact a ul.icons li.tel span,
+body div#wrapper header div.global div.container div.right.contact a:visited ul.icons li.tel span {
+  display: block;
+  padding-top: 31px;
+}
+body div#wrapper header div.global div.container div.right.searchBox {
+  margin-top: 10px;
+  width: 264px;
+  clear: right;
+  text-align: right;
+}
+body div#wrapper header nav.menu {
+  width: 100%;
+  min-height: 49px;
+  float: left;
+  background: #002830 url("../images/menubg.gif") bottom left repeat-x;
+}
+body div#wrapper header nav.menu div.container {
+  width: 940px;
+  margin: 0 auto;
+}
+body div#wrapper header nav.menu div.container ul {
+  display: block;
+  width: 100%;
+  float: left;
+  margin: 0;
+  list-style-type: none;
+}
+body div#wrapper header nav.menu div.container ul li.quoteListItem {
+  display: block;
+  float: left;
+  width: 16.6%;
+  height: 46px;
+  line-height: 41px;
+  padding: 3px 0 0;
+  text-align: center;
+}
+body div#wrapper header nav.menu div.container ul li.quoteListItem a {
+  display: block;
+  width: 100%;
+  height: 46px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+body div#wrapper header nav.menu div.container ul li.quoteListItem a:hover {
+  background: #133b44;
+  padding-top: 0;
+  text-decoration: underline;
+}
+body div#wrapper header nav.menu div.container ul li.switchListItem {
+  display: block;
+  float: left;
+  width: 16.6%;
+  height: 46px;
+  line-height: 41px;
+  padding: 3px 0 0;
+  text-align: center;
+}
+body div#wrapper header nav.menu div.container ul li.switchListItem a {
+  display: block;
+  width: 100%;
+  height: 46px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+body div#wrapper header nav.menu div.container ul li.switchListItem a:hover {
+  background: #133b44;
+  padding-top: 0;
+  text-decoration: underline;
+}
+body div#wrapper header nav.menu div.container ul li.everythingListItem {
+  display: block;
+  float: left;
+  width: 16.6%;
+  height: 46px;
+  line-height: 41px;
+  padding: 3px 0 0;
+  text-align: center;
+}
+body div#wrapper header nav.menu div.container ul li.everythingListItem a {
+  display: block;
+  width: 100%;
+  height: 46px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+body div#wrapper header nav.menu div.container ul li.everythingListItem a:hover {
+  background: #133b44;
+  padding-top: 0;
+  text-decoration: underline;
+}
+body div#wrapper header nav.menu div.container ul li.memberListItem {
+  display: block;
+  float: left;
+  width: 16.6%;
+  height: 46px;
+  line-height: 41px;
+  padding: 3px 0 0;
+  text-align: center;
+}
+body div#wrapper header nav.menu div.container ul li.memberListItem a {
+  display: block;
+  width: 100%;
+  height: 46px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+  border-right: none;
+}
+body div#wrapper header nav.menu div.container ul li.memberListItem a:hover {
+  background: #133b44;
+  padding-top: 0;
+  text-decoration: underline;
+}
+body div#wrapper div#content {
+  clear: both;
+  padding-bottom: 5px;
+  width: 100%;
+  min-height: 465px;
+  background: url("../images/BG.jpg") top center repeat-x;
+  background-size: cover;
+}
+body div#wrapper div#content article {
+  margin: 0 auto;
+  padding: 1%;
+  width: 70%;
+  background: rgba(163, 226, 131, 0.5);
+  border-radius: 1px;
+  -webkit-box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.75);
+}
+body div#wrapper div#content article h2 {
+  font-style: italic;
+  margin: 0 auto;
+  text-align: center;
+}
+body div#wrapper div#content article#contactarea div.google_map {
+  position: relative;
+  margin: 10em 0;
+}
+body div#wrapper div#content article#contactarea div.google_map div.cover {
+  position: absolute;
+  top: 70px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  opacity: 0.1;
+}
+body div#wrapper div#content article#contactarea img {
+  margin: 0.5%;
+  float: left;
+}
+body div#wrapper div#content article#contactarea p {
+  font-size: 16px;
+  padding: 0.5%;
+}
+body div#wrapper div#content article#contactarea p.clear {
+  clear: both;
+}
+body div#wrapper footer {
+  padding: 0 auto;
+  width: 100%;
+  float: left;
+  border-top: 1px solid #dedede;
+}
+body div#wrapper footer div#footerg {
+  width: 100%;
+  float: left;
+  color: #002830;
+  background: #a3e282;
+}
+body div#wrapper footer div#footerg div.container {
+  width: 940px;
+  margin: 0 auto;
+}
+body div#wrapper footer div#footerg div.container div.three {
+  float: left;
+  width: 33%;
+}
+body div#wrapper footer div#footerg div.container div.three p a {
+  color: black;
+}
+body div#wrapper footer div#footerg div.container div.three p.small {
+  font-size: small;
+}
+body div#wrapper footer div#footerb {
+  width: 100%;
+  float: left;
+  padding-top: 50px;
+  background: #002830;
+  color: white;
+}
+body div#wrapper footer div#footerb div.container {
+  width: 940px;
+  margin: 0 auto;
+}
+body div#wrapper footer div#footerb div.container h3 {
+  float: left;
+  width: 33%;
+  color: #A3E272;
+}
+@media only screen and (max-width: 1264px) {
+  html body div#wrapper div#content article {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 980px) {
+  html body div#wrapper div#content {
+    background: none;
+  }
+  html body div#wrapper div#content article {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 957px) {
+  html body div#wrapper header div.global div.container {
+    width: 100%;
+  }
+  html body div#wrapper header div.global div.container div.left.mainLogo {
+    margin-left: 1%;
+  }
+  html body div#wrapper header div.global div.container div.right.contact a {
+    display: none;
+  }
+  html body div#wrapper header nav.menu div.container {
+    width: 100%;
+  }
+  html body div#wrapper footer div#footerg div.container {
+    padding-left: 1%;
+    width: 100%;
+  }
+  html body div#wrapper footer div#footerb div.container {
+    width: 100%;
+    padding-left: 1%;
+  }
+}
+@media only screen and (max-width: 730px) {
+  html body {
+    font-size: 12px;
+  }
+  html body div#wrapper header nav.menu div.container ul li.quoteListItem a {
+    font-size: 14px;
+  }
+  html body div#wrapper header nav.menu div.container ul li.switchListItem a {
+    font-size: 14px;
+  }
+  html body div#wrapper header nav.menu div.container ul li.everythingListItem a {
+    font-size: 14px;
+  }
+  html body div#wrapper header nav.menu div.container ul li.memberListItem a {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 650px) {
+  html body div#wrapper header div.global div.container div.right.contact button {
+    display: inline-block;
+  }
+  html body div#wrapper header div.global div.container div.right.searchBox {
+    display: none;
+  }
+  html body div#wrapper header nav.menu div.container ul li.quoteListItem {
+    width: 100%;
+    float: none;
+    display: none;
+  }
+  html body div#wrapper header nav.menu div.container ul li.quoteListItem a:hover {
+    background: none;
+  }
+  html body div#wrapper header nav.menu div.container ul li.switchListItem {
+    width: 100%;
+    float: none;
+    display: none;
+  }
+  html body div#wrapper header nav.menu div.container ul li.switchListItem a:hover {
+    background: none;
+  }
+  html body div#wrapper header nav.menu div.container ul li.everythingListItem {
+    width: 100%;
+    float: none;
+    display: none;
+  }
+  html body div#wrapper header nav.menu div.container ul li.everythingListItem a:hover {
+    background: none;
+  }
+  html body div#wrapper header nav.menu div.container ul li.memberListItem {
+    width: 100%;
+    float: none;
+    display: none;
+  }
+  html body div#wrapper header nav.menu div.container ul li.memberListItem a:hover {
+    background: none;
+  }
+  html body div#wrapper footer div.footerb {
+    float: none;
+  }
+  html body div#wrapper footer div.footerb div.container h3 {
+    float: none;
+  }
+}
+@media only screen and (max-width: 471px) {
+  html body div#wrapper footer div#footerb {
+    float: none;
+  }
+  html body div#wrapper footer div#footerb div.container {
+    float: none;
+  }
+  html body div#wrapper footer div#footerb div.container h3 {
+    float: none;
+    display: block;
+    margin: 0;
+  }
+}
+@media only screen and (max-width: 400px) {
+  html body div#wrapper header div.global div.container div.left.mainLogo a {
+    width: 151px;
+    background: url("../images/logo.png") center no-repeat;
+  }
+  html body div#wrapper header nav.menu div.container ul li.quoteListItem {
+    text-align: left;
+  }
+  html body div#wrapper header nav.menu div.container ul li.switchListItem {
+    text-align: left;
+  }
+  html body div#wrapper header nav.menu div.container ul li.everythingListItem {
+    text-align: left;
+  }
+  html body div#wrapper header nav.menu div.container ul li.memberListItem {
+    text-align: left;
+  }
+}
