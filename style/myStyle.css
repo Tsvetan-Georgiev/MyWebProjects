@@ -42,7 +42,6 @@ body div#wrapper header div.global div.container div.left.mainLogo a {
   height: 1px;
   padding-top: 67px;
   margin-top: 25px;
-  background: url("../images/log1.png") center no-repeat;
 }
 body div#wrapper header div.global div.container div.left.mainLogo a:visited {
   color: #028bff;
@@ -68,7 +67,7 @@ body div#wrapper header div.global div.container div.right.contact button {
   display: none;
 }
 body div#wrapper header div.global div.container div.right.contact button:focus {
-  border-radius: 0px;
+  border-radius: 0;
   box-shadow: none;
 }
 body div#wrapper header div.global div.container div.right.contact a,
@@ -303,6 +302,9 @@ body div#wrapper div#content article#contactarea p {
 }
 body div#wrapper div#content article#contactarea p.clear {
   clear: both;
+}
+body div#wrapper div#content article.tab p {
+  font-size: 20px;
 }
 body div#wrapper footer {
   padding: 0 auto;
