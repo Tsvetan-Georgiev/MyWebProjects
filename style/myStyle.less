@@ -62,7 +62,7 @@ body{
 							border-top-right-radius:50px ;
 							display: none;
 							&:focus{
-								border-radius:0px;
+								border-radius:0;
 								box-shadow: none;
 							}
 						}
@@ -264,9 +264,10 @@ body{
 		div#content{
 			clear: both;
 			padding-bottom: 5px;
-			width: 100%;
+			width: 1600px;
 			min-height: 465px;
 			background: url("../images/BG.jpg") top center repeat-x;
+			height: 770px;
 			background-size: cover;
 			article{
 				margin: 0 auto;
@@ -307,6 +308,11 @@ body{
 				}
 				p.clear{
 					clear: both;
+				}
+			}
+			article.tab{
+				p{
+					font-size: 20px;
 				}
 			}
 		}
