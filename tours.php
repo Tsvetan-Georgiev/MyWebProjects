@@ -95,7 +95,7 @@
 				$obj->host = 'localhost';
 				$obj->username = 'username';
 				$obj->password = 'pass';
-				$obj->table = 'psihozdr_main';
+				$obj->table = 'radieli';
 				$obj->connect();
 				$obj->write($_POST);
 				echo ( $_GET['admin'] == 1 ) ? $obj->display_admin() : $obj->display_public();
