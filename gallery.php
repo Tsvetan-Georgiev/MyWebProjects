@@ -11,7 +11,7 @@
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <meta name="description" content="Образование на Иван Тричков и как той би помогнал на дадени групи психологични проблеми. Личностна терапия. Семейна терапия. Групова терапия и организация">
 	<title>Галерия | хотел Радиели до кръстова гора | hotelradieli.com </title>
-	<link rel="stylesheet" type="text/css" href="style/forpsyholog.css">
+	<link rel="stylesheet" type="text/css" href="style/forgallery.css">
 </head>
 <body>
 	<div id="fb-root"></div>
@@ -181,7 +181,7 @@
                     </a>
                 </div>
             </article>
-			<article>
+			<article class="opportunities">
 				<h3>Снимки на местността около хотел Радиели</h3>
 				<div id="myCarousel2" class="carousel slide" data-ride="carousel">
 					<!-- Indicators -->
