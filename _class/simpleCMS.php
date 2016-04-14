@@ -7,7 +7,7 @@ class simpleCMS {
   var $table;
 
   public function display_public() {
-    $q = "SELECT * FROM psihozdrave ORDER BY created DESC LIMIT 100";
+    $q = "SELECT * FROM tour ORDER BY created DESC LIMIT 100";
     $r = mysql_query($q);
 
     if ( $r !== false && mysql_num_rows($r) > 0 ) {
@@ -16,6 +16,7 @@ class simpleCMS {
         $bodytext = stripslashes($a['bodytext']);
         $created = stripcslashes($a['created']);
         $created = date("d-m-Y", $created);
+        $entry_display = "";
         $entry_display.= <<<ENTRY_DISPLAY
     <article id="story">
       <h2>$title</h2>
@@ -61,13 +62,15 @@ ADMIN_FORM;
   }
 
   public function write($p) {
+    $title = false;
+    $bodytext = false;
     if ( $p['title'] )
       $title = mysql_real_escape_string($p['title']);
     if ( $p['bodytext'])
       $bodytext = mysql_real_escape_string($p['bodytext']);
     if ( $title && $bodytext ) {
       $created = time();
-      $sql = "INSERT INTO psihozdrave VALUES('$title','$bodytext','$created')";
+      $sql = "INSERT INTO tour VALUES('$title','$bodytext','$created')";
       return mysql_query($sql);
     } else {
       return false;
@@ -83,7 +86,7 @@ ADMIN_FORM;
 
   private function buildDB() {
     $sql = <<<MySQL_QUERY
-    CREATE TABLE IF NOT EXISTS psihozdrave (
+    CREATE TABLE IF NOT EXISTS tour (
     title VARCHAR(150),
     bodytext  TEXT,
     created VARCHAR(100)

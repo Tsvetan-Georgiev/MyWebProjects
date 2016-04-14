@@ -2,16 +2,16 @@
       <div class="global">
             <div class="container">
                <div class="left mainLogo">
-                  <a href="adminpanel.php" title="Психо здраве">
-                     <span>Психо здраве</span>
+                  <a href="adminpanel.php" title="Администрация">
+                     <span>Администрация</span>
                   </a>
                </div>
                <div class="right contact">
                   <a href="../contact.php">
-                     <p class="contact">Свържи се с Иван</p><br>
+                     <p class="contact">Свържи се с нас</p><br>
                      <ul class="icons">
                         <li class="email">
-                           <span>itrichkov@abv.bg</span>
+                           <span>radieli_sf@abv.bg</span>
                         </li>
                         <li class="chat">
                            <span>Chat</span>
@@ -45,7 +45,7 @@
                   </li>
                   <li class="everythingListItem">
                      <a href="../tours.php" title="Статии и публикации">
-                        <span>Статии и публикации</span>
+                        <span>Туризъм</span>
                      </a>
                   </li>
                   <li class="memberListItem">
@@ -58,16 +58,16 @@
          </nav>
       </header>
              <div id="content">
-               <?php
-                  include_once('../_class/simpleCMS.php');
-                  $obj = new simpleCMS();
-                  $obj->host = 'localhost';
-		  $obj->username = 'username';
-		  $obj->password = 'pass';
-		  $obj->table = 'table';
-                  $obj->connect();
-                  $obj->write($_POST);
-                  echo 
+                <?php
+                    include_once('../_class/simpleCMS.php');
+                    $obj = new simpleCMS();
+                    $obj->host = 'localhost';
+                    $obj->username = 'radieli';
+		            $obj->password = '';
+		            $obj->table = 'radieli';
+                    $obj->connect();
+                    $obj->write($_POST);
+                    echo
                      "<article>
                         <p class='admin_link'>
                         <a href=\"{$_SERVER['PHP_SELF']}?admin=1\">
@@ -75,7 +75,7 @@
                         </p>
                      </article>";
                   echo ( $_GET['admin'] == 1 ) ? $obj->display_admin() : $obj->display_public();
-               ?>
+                ?>
             </div> 
             <!-- logged in !-->
    <?php
@@ -89,12 +89,12 @@
                      </a>
                   </li>
                   <li class="everythingListItem">
-                     <a href="../tours.php" title="Статии и публикации">
-                        <span>Статии и публикации</span>
+                     <a href="../tours.php" title="Туризъм">
+                        <span>Туризъм</span>
                      </a>
                   </li>
                   <li class="memberListItem">
-                     <a href="../index.php" title="Контакти">
+                     <a href="../index.php" title="Към сайта">
                         <span>Към сайта</span>
                      </a>
                   </li>

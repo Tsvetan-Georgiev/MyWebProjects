@@ -30,7 +30,7 @@
                if (empty($username) or empty($password)) {
                   echo "<p style='color:red;'>Поребителят или Паролата не са въведени!</p>";
                } else {
-                  $check_login = mysql_query("SELECT id FROM users WHERE username='$username' AND password='$password'");
+                  $check_login = mysql_query("SELECT id FROM user WHERE username='$username' AND password='$password'");
                   if (mysql_num_rows($check_login) == 1){
                      $run = mysql_fetch_array($check_login);
                      $user_id = $run['id'];
@@ -38,7 +38,7 @@
                      header('location: ../administration/adminpanel.php');
                   }
                   else{
-                     echo "<p style='color:red;'> Невярна парола или потребител</p>";
+                     echo "<p style='color:red;'> Невярна парола или потребител. Паролата е $password</p>";
                   }
                }
                

@@ -93,8 +93,8 @@
 				set_error_handler("customError");
 				$obj = new simpleCMS();
 				$obj->host = 'localhost';
-				$obj->username = 'username';
-				$obj->password = 'pass';
+				$obj->username = 'radieli';
+				$obj->password = '';
 				$obj->table = 'radieli';
 				$obj->connect();
 				$obj->write($_POST);

@@ -1,4 +1,4 @@
 <?php
-	mysql_connect('localhost','username','pass');
-	mysql_select_db('table');
+	mysql_connect('localhost','radieli','');
+	mysql_select_db('radieli');
 ?>

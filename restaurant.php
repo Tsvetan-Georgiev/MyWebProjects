@@ -115,12 +115,12 @@ include_once('parts/header.php');
             <h2 style="display:none;">hotel Radieli Restaurant picture 2 (хотел Радиели снимка на ресторанта 2)</h2>
         </article>
         <article class="opportunities">
-            <img src="images/radieli-restaurant3.jpg" alt="Маса, готова и чакаща свойте консуматори с поглед към прозорците" width="100%" height="50%">
-            <h2 style="display:none;">hotel Radieli Restaurant picture 3 (хотел Радиели снимка на ресторанта 3)</h2>
-        </article>
-        <article class="opportunities">
             <img src="images/radieli-restaurant4.jpg" alt="Маса, готова и чакаща свойте консуматори с поглед към бара" width="100%" height="50%">
             <h2 style="display:none;">hotel Radieli Restaurant picture 4 (хотел Радиели снимка на ресторанта 4)</h2>
+        </article>
+        <article class="opportunities">
+            <img src="images/radieli-restaurant3.jpg" alt="Маса, готова и чакаща свойте консуматори с поглед към прозорците" width="100%" height="50%">
+            <h2 style="display:none;">hotel Radieli Restaurant picture 3 (хотел Радиели снимка на ресторанта 3)</h2>
         </article>
         <article class="opportunities">
             <img src="images/radieli-restaurant5.jpg" alt="Маса, готова и чакаща свойте консуматори от близък план" width="100%" height="50%">
