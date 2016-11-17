@@ -1,0 +1,4 @@
+.idea/*
+error_log
+scripts/connect.php
+scripts/error_log
