@@ -22,6 +22,20 @@
 						Изтриване
 					</a>
 				</li>
+				<?php
+				include_once ('scripts/connect.php');
+				include_once ('scripts/session.php');
+					if(loggedin()){
+
+				?>
+				<li>
+					<a href="scripts/logout.php">
+						Излизане
+					</a>
+				</li>
+				<?php
+					}
+				?>
 			</ul>
 		</div>
 	</nav>

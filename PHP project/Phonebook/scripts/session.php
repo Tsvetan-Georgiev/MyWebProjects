@@ -19,7 +19,7 @@ if (isset($_SESSION["timeout"])) {
 
         session_destroy();
 
-        header("Location: /Phonebook/index.php");
+        header("Location: /index.php");
 
     }
 
@@ -34,7 +34,7 @@ function loggedin(){
 		include ('connect.php');
 		$q = <<<SQL
 		SELECT * FROM users
-		WHERE ID = "$id"
+		WHERE id = "$id"
 SQL;
 		$user = $conn ->query($q);
 		$user = $user ->fetch_assoc();

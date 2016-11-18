@@ -1,5 +1,5 @@
 <?php 
-	include_once ('secure.php');
+	//include_once ('secure.php');
 	include_once ('connect.php');
 	$phonebook = $_SESSION['username']."_phonebook";
 	if(isset($_GET['sort_number'])){

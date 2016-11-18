@@ -1,17 +1,6 @@
-<!Doctype html>
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html;  charset=UTF-8"/>
-	<title>
-		Телефонен указател
-	</title>
-	<meta name = "viewport" content="width = device-width, initial-scale = 1">
-	<link rel="stylesheet" type="text/css" href="styles/homepage.css">
-	<link rel="stylesheet" type="text/css" href="styles/bootstrap/css/bootstrap.css">
-	<script type="text/javascript" src="scripts/jquery.min.js"></script>
-	<script type="text/javascript" src="styles/bootstrap/js/bootstrap.js"></script>
-	<script src="scripts/validateForm.js"></script>
-</head>
+<?php
+include_once ('parts/begin.php');
+?>
 <body>
 	<div class="container">
 		<?php
@@ -72,6 +61,7 @@
 				            	include ('scripts/secure.php');
 								$username = safestrip($_POST['user']);
 								$password = md5(safestrip($_POST['pass']));
+								echo "<br/># ".$username." # ".$password." # <br/>";
 								if(empty($username) or empty($password)) {
 				                	echo "<p style='color:red;'>Поребителят или Паролата не са въведени!</p>";
 				                }
@@ -84,9 +74,7 @@ SQL;
 				                	if($check_login){
 					                	if (mysqli_num_rows($check_login) == 1){
 					                    	$run = mysqli_fetch_array($check_login,MYSQLI_ASSOC);
-					                    	var_dump($run);
 					                    	$user_id = $run['id'];
-					                    	var_dump($user_id);
 					                    	$_SESSION['user_id'] = $user_id;
 					                    	header('location: newcontact.php');
 					                	}

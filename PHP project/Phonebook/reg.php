@@ -13,7 +13,7 @@
 </head>
 <body>
 	<div class = "container">
-		<form method="post" style = "margin:60px 0 0 40%">
+		<form method="POST" style = "margin:60px 0 0 40%">
 			<?php
 				include_once ("scripts/secure.php");
 				include_once ("scripts/connect.php");
@@ -22,7 +22,7 @@
 					$username = safestrip($_POST['user']);
 					$password = md5(safestrip($_POST['pass']));
 					if(empty($username) or empty($password)) {
-	                	echo "<p style='color:red;'>Поребителят или Паролата не са въведени!</p>";
+	                	echo "<p style='color:red;'>Потребителят или Паролата не са въведени!</p>";
 	                }
 	        		else {
 	        			$q = <<<SQL
@@ -34,7 +34,7 @@ SQL;
 						$check = $check -> fetch_assoc();
 						$check = $check['username'];
 						if ($username === $check) {
-							echo "<p style='color:red;'>Поребителят вече съществува!</p>";
+							echo "<p style='color:red;'>Потребителят вече съществува!</p>";
 						}
 						else{
 
