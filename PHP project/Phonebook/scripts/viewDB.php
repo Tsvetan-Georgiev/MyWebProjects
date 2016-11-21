@@ -1,4 +1,4 @@
-<?php 
+<?php
 	//include_once ('secure.php');
 	include_once ('connect.php');
 	$phonebook = $_SESSION['username']."_phonebook";
@@ -6,9 +6,9 @@
 		if(isset($_POST["submitsearch"])){
 			$forsearch = safestrip($_POST["search"]);
 			$sql = <<< SQL
-			SELECT * 
-			FROM  $phonebook 
-			WHERE 
+			SELECT *
+			FROM  $phonebook
+			WHERE
 				fullname LIKE '%$forsearch%'
 			OR
 				phonenumber LIKE '%$forsearch%'
@@ -21,7 +21,16 @@ SQL;
 				while($row=$result->fetch_assoc()){
 					$phone = $row["phonenumber"];
 					$email = $row["email"];
-					echo "<tr><td>".$row["id"]."</td><td>".$row["fullname"]."</td><td><a href=tel:$phone>".$phone."</a></td><td>".$row["phonenumber2"]."</td><td class = 'addrs'>".$row["address"]."</td><td><a href='mailto:$email'>".$email."</a></td><td>".$row["info"]."</td><td>".$row["reg_date"]."</td></tr>";
+					echo "<tr>
+          <td>".$row["id"]."</td>
+          <td>".$row["fullname"]."</td>
+          <td><a href=tel:$phone>".$phone."</a></td>
+          <td>".$row["phonenumber2"]."</td>
+          <td class = 'addrs'>".$row["address"]."</td>
+          <td><a href='mailto:$email'>".$email."</a></td>
+          <td>".$row["info"]."</td>
+          <td>".$row["reg_date"]."</td>
+          </tr>";
 				}
 			}
 			else{
@@ -30,7 +39,7 @@ SQL;
 		}
 		else{
 			$sql = <<<SQL
-			SELECT * 
+			SELECT *
 			FROM $phonebook
 			ORDER BY id ASC
 SQL;
@@ -57,14 +66,14 @@ SQL;
 		}
 		return;
 	}
-	
+
 	if(isset($_GET['sort_name'])){
 		if(isset($_POST["submitsearch"])){
 			$forsearch = safestrip($_POST["search"]);
 			$sql = <<< SQL
-			SELECT * 
-			FROM  $phonebook 
-			WHERE 
+			SELECT *
+			FROM  $phonebook
+			WHERE
 				fullname LIKE '%$forsearch%'
 			OR
 				phonenumber LIKE '%$forsearch%'
@@ -77,7 +86,16 @@ SQL;
 				while($row=$result->fetch_assoc()){
 					$phone = $row["phonenumber"];
 					$email = $row["email"];
-					echo "<tr><td>".$row["id"]."</td><td>".$row["fullname"]."</td><td><a href=tel:$phone>".$phone."</a></td><td>".$row["phonenumber2"]."</td><td class = 'addrs'>".$row["address"]."</td><td><a href='mailto:$email'>".$email."</a></td><td>".$row["info"]."</td><td>".$row["reg_date"]."</td></tr>";
+					echo "<tr>
+          <td>".$row["id"]."</td>
+          <td>".$row["fullname"]."</td>
+          <td><a href=tel:$phone>".$phone."</a></td>
+          <td>".$row["phonenumber2"]."</td>
+          <td class = 'addrs'>".$row["address"]."</td>
+          <td><a href='mailto:$email'>".$email."</a></td>
+          <td>".$row["info"]."</td>
+          <td>".$row["reg_date"]."</td>
+          </tr>";
 				}
 			}
 			else{
@@ -86,7 +104,7 @@ SQL;
 		}
 		else{
 			$sql = <<<SQL
-			SELECT * 
+			SELECT *
 			FROM $phonebook
 			ORDER BY fullname ASC
 SQL;
@@ -95,7 +113,16 @@ SQL;
 				while($row=$result->fetch_assoc()){
 					$phone = $row["phonenumber"];
 					$email = $row["email"];
-					echo "<tr><td>".$row["id"]."</td><td>".$row["fullname"]."</td><td><a href=tel:$phone>".$phone."</a></td><td>".$row["phonenumber2"]."</td><td class = 'addrs'>".$row["address"]."</td><td><a href='mailto:$email'>".$email."</a></td><td>".$row["info"]."</td><td>".$row["reg_date"]."</td></tr>";
+					echo "<tr>
+          <td>".$row["id"]."</td>
+          <td>".$row["fullname"]."</td>
+          <td><a href=tel:$phone>".$phone."</a></td>
+          <td>".$row["phonenumber2"]."</td>
+          <td class = 'addrs'>".$row["address"]."</td>
+          <td><a href='mailto:$email'>".$email."</a></td>
+          <td>".$row["info"]."</td>
+          <td>".$row["reg_date"]."</td>
+          </tr>";
 				}
 			}
 			else{
@@ -104,14 +131,14 @@ SQL;
 		}
 		return;
 	}
-	
+
 	if(isset($_GET['sort_phonenum'])){
 		if(isset($_POST["submitsearch"])){
 			$forsearch = safestrip($_POST["search"]);
 			$sql = <<< SQL
-			SELECT * 
-			FROM  $phonebook 
-			WHERE 
+			SELECT *
+			FROM  $phonebook
+			WHERE
 				fullname LIKE '%$forsearch%'
 			OR
 				phonenumber LIKE '%$forsearch%'
@@ -124,7 +151,16 @@ SQL;
 				while($row=$result->fetch_assoc()){
 					$phone = $row["phonenumber"];
 					$email = $row["email"];
-					echo "<tr><td>".$row["id"]."</td><td>".$row["fullname"]."</td><td><a href=tel:$phone>".$phone."</a></td><td>".$row["phonenumber2"]."</td><td class = 'addrs'>".$row["address"]."</td><td><a href='mailto:$email'>".$email."</a></td><td>".$row["info"]."</td><td>".$row["reg_date"]."</td></tr>";
+					echo "<tr>
+          <td>".$row["id"]."</td>
+          <td>".$row["fullname"]."</td>
+          <td><a href=tel:$phone>".$phone."</a></td>
+          <td>".$row["phonenumber2"]."</td>
+          <td class = 'addrs'>".$row["address"]."</td>
+          <td><a href='mailto:$email'>".$email."</a></td>
+          <td>".$row["info"]."</td>
+          <td>".$row["reg_date"]."</td>
+          </tr>";
 				}
 			}
 			else{
@@ -133,7 +169,7 @@ SQL;
 		}
 		else{
 			$sql = <<<SQL
-			SELECT * 
+			SELECT *
 			FROM $phonebook
 			ORDER BY phonenumber ASC
 SQL;
@@ -142,7 +178,16 @@ SQL;
 				while($row=$result->fetch_assoc()){
 					$phone = $row["phonenumber"];
 					$email = $row["email"];
-					echo "<tr><td>".$row["id"]."</td><td>".$row["fullname"]."</td><td><a href=tel:$phone>".$phone."</a></td><td>".$row["phonenumber2"]."</td><td class = 'addrs'>".$row["address"]."</td><td><a href='mailto:$email'>".$email."</a></td><td>".$row["info"]."</td><td>".$row["reg_date"]."</td></tr>";
+					echo "<tr>
+          <td>".$row["id"]."</td>
+          <td>".$row["fullname"]."</td>
+          <td><a href=tel:$phone>".$phone."</a></td>
+          <td>".$row["phonenumber2"]."</td>
+          <td class = 'addrs'>".$row["address"]."</td>
+          <td><a href='mailto:$email'>".$email."</a></td>
+          <td>".$row["info"]."</td>
+          <td>".$row["reg_date"]."</td>
+          </tr>";
 				}
 			}
 			else{
@@ -151,14 +196,14 @@ SQL;
 		}
 		return;
 	}
-	
+
 	if(isset($_GET['sort_phonenum2'])){
 		if(isset($_POST["submitsearch"])){
 			$forsearch = safestrip($_POST["search"]);
 			$sql = <<< SQL
-			SELECT * 
-			FROM  $phonebook 
-			WHERE 
+			SELECT *
+			FROM  $phonebook
+			WHERE
 				fullname LIKE '%$forsearch%'
 			OR
 				phonenumber LIKE '%$forsearch%'
@@ -171,7 +216,16 @@ SQL;
 				while($row=$result->fetch_assoc()){
 					$phone = $row["phonenumber"];
 					$email = $row["email"];
-					echo "<tr><td>".$row["id"]."</td><td>".$row["fullname"]."</td><td><a href=tel:$phone>".$phone."</a></td><td>".$row["phonenumber2"]."</td><td class = 'addrs'>".$row["address"]."</td><td><a href='mailto:$email'>".$email."</a></td><td>".$row["info"]."</td><td>".$row["reg_date"]."</td></tr>";
+					echo "<tr>
+          <td>".$row["id"]."</td>
+          <td>".$row["fullname"]."</td>
+          <td><a href=tel:$phone>".$phone."</a></td>
+          <td>".$row["phonenumber2"]."</td>
+          <td class = 'addrs'>".$row["address"]."</td>
+          <td><a href='mailto:$email'>".$email."</a></td>
+          <td>".$row["info"]."</td>
+          <td>".$row["reg_date"]."</td>
+          </tr>";
 				}
 			}
 			else{
@@ -180,7 +234,7 @@ SQL;
 		}
 		else{
 			$sql = <<<SQL
-			SELECT * 
+			SELECT *
 			FROM $phonebook
 			ORDER BY phonenumber2 ASC
 SQL;
@@ -189,7 +243,16 @@ SQL;
 				while($row=$result->fetch_assoc()){
 					$phone = $row["phonenumber"];
 					$email = $row["email"];
-					echo "<tr><td>".$row["id"]."</td><td>".$row["fullname"]."</td><td><a href=tel:$phone>".$phone."</a></td><td>".$row["phonenumber2"]."</td><td class = 'addrs'>".$row["address"]."</td><td><a href='mailto:$email'>".$email."</a></td><td>".$row["info"]."</td><td>".$row["reg_date"]."</td></tr>";
+					echo "<tr>
+          <td>".$row["id"]."</td>
+          <td>".$row["fullname"]."</td>
+          <td><a href=tel:$phone>".$phone."</a></td>
+          <td>".$row["phonenumber2"]."</td>
+          <td class = 'addrs'>".$row["address"]."</td>
+          <td><a href='mailto:$email'>".$email."</a></td>
+          <td>".$row["info"]."</td>
+          <td>".$row["reg_date"]."</td>
+          </tr>";
 				}
 			}
 			else{
@@ -202,9 +265,9 @@ SQL;
 		if(isset($_POST["submitsearch"])){
 			$forsearch = safestrip($_POST["search"]);
 			$sql = <<< SQL
-			SELECT * 
-			FROM  $phonebook 
-			WHERE 
+			SELECT *
+			FROM  $phonebook
+			WHERE
 				fullname LIKE '%$forsearch%'
 			OR
 				phonenumber LIKE '%$forsearch%'
@@ -217,7 +280,16 @@ SQL;
 				while($row=$result->fetch_assoc()){
 					$phone = $row["phonenumber"];
 					$email = $row["email"];
-					echo "<tr><td>".$row["id"]."</td><td>".$row["fullname"]."</td><td><a href=tel:$phone>".$phone."</a></td><td>".$row["phonenumber2"]."</td><td class = 'addrs'>".$row["address"]."</td><td><a href='mailto:$email'>".$email."</a></td><td>".$row["info"]."</td><td>".$row["reg_date"]."</td></tr>";
+					echo "<tr>
+          <td>".$row["id"]."</td>
+          <td>".$row["fullname"]."</td>
+          <td><a href=tel:$phone>".$phone."</a></td>
+          <td>".$row["phonenumber2"]."</td>
+          <td class = 'addrs'>".$row["address"]."</td>
+          <td><a href='mailto:$email'>".$email."</a></td>
+          <td>".$row["info"]."</td>
+          <td>".$row["reg_date"]."</td>
+          </tr>";
 				}
 			}
 			else{
@@ -226,7 +298,7 @@ SQL;
 		}
 		else{
 			$sql = <<<SQL
-			SELECT * 
+			SELECT *
 			FROM $phonebook
 			ORDER BY address ASC
 SQL;
@@ -235,7 +307,16 @@ SQL;
 				while($row=$result->fetch_assoc()){
 					$phone = $row["phonenumber"];
 					$email = $row["email"];
-					echo "<tr><td>".$row["id"]."</td><td>".$row["fullname"]."</td><td><a href=tel:$phone>".$phone."</a></td><td>".$row["phonenumber2"]."</td><td class = 'addrs'>".$row["address"]."</td><td><a href='mailto:$email'>".$email."</a></td><td>".$row["info"]."</td><td>".$row["reg_date"]."</td></tr>";
+					echo "<tr>
+          <td>".$row["id"]."</td>
+          <td>".$row["fullname"]."</td>
+          <td><a href=tel:$phone>".$phone."</a></td>
+          <td>".$row["phonenumber2"]."</td>
+          <td class = 'addrs'>".$row["address"]."</td>
+          <td><a href='mailto:$email'>".$email."</a></td>
+          <td>".$row["info"]."</td>
+          <td>".$row["reg_date"]."</td>
+          </tr>";
 				}
 			}
 			else{
@@ -244,14 +325,14 @@ SQL;
 		}
 		return;
 	}
-	
+
 	if(isset($_GET['sort_email'])){
 		if(isset($_POST["submitsearch"])){
 			$forsearch = safestrip($_POST["search"]);
 			$sql = <<< SQL
-			SELECT * 
-			FROM  $phonebook 
-			WHERE 
+			SELECT *
+			FROM  $phonebook
+			WHERE
 				fullname LIKE '%$forsearch%'
 			OR
 				phonenumber LIKE '%$forsearch%'
@@ -264,7 +345,16 @@ SQL;
 				while($row=$result->fetch_assoc()){
 					$phone = $row["phonenumber"];
 					$email = $row["email"];
-					echo "<tr><td>".$row["id"]."</td><td>".$row["fullname"]."</td><td><a href=tel:$phone>".$phone."</a></td><td>".$row["phonenumber2"]."</td><td class = 'addrs'>".$row["address"]."</td><td><a href='mailto:$email'>".$email."</a></td><td>".$row["info"]."</td><td>".$row["reg_date"]."</td></tr>";
+					echo "<tr>
+          <td>".$row["id"]."</td>
+          <td>".$row["fullname"]."</td>
+          <td><a href=tel:$phone>".$phone."</a></td>
+          <td>".$row["phonenumber2"]."</td>
+          <td class = 'addrs'>".$row["address"]."</td>
+          <td><a href='mailto:$email'>".$email."</a></td>
+          <td>".$row["info"]."</td>
+          <td>".$row["reg_date"]."</td>
+          </tr>";
 				}
 			}
 			else{
@@ -273,7 +363,7 @@ SQL;
 		}
 		else{
 			$sql = <<<SQL
-			SELECT * 
+			SELECT *
 			FROM $phonebook
 			ORDER BY email ASC
 SQL;
@@ -282,7 +372,16 @@ SQL;
 				while($row=$result->fetch_assoc()){
 					$phone = $row["phonenumber"];
 					$email = $row["email"];
-					echo "<tr><td>".$row["id"]."</td><td>".$row["fullname"]."</td><td><a href=tel:$phone>".$phone."</a></td><td>".$row["phonenumber2"]."</td><td class = 'addrs'>".$row["address"]."</td><td><a href='mailto:$email'>".$email."</a></td><td>".$row["info"]."</td><td>".$row["reg_date"]."</td></tr>";
+					echo "<tr>
+          <td>".$row["id"]."</td>
+          <td>".$row["fullname"]."</td>
+          <td><a href=tel:$phone>".$phone."</a></td>
+          <td>".$row["phonenumber2"]."</td>
+          <td class = 'addrs'>".$row["address"]."</td>
+          <td><a href='mailto:$email'>".$email."</a></td>
+          <td>".$row["info"]."</td>
+          <td>".$row["reg_date"]."</td>
+          </tr>";
 				}
 			}
 			else{
@@ -291,14 +390,14 @@ SQL;
 		}
 		return;
 	}
-	
+
 	if(isset($_GET['sort_note'])){
 		if(isset($_POST["submitsearch"])){
 			$forsearch = safestrip($_POST["search"]);
 			$sql = <<< SQL
-			SELECT * 
-			FROM  $phonebook 
-			WHERE 
+			SELECT *
+			FROM  $phonebook
+			WHERE
 				fullname LIKE '%$forsearch%'
 			OR
 				phonenumber LIKE '%$forsearch%'
@@ -311,7 +410,16 @@ SQL;
 				while($row=$result->fetch_assoc()){
 					$phone = $row["phonenumber"];
 					$email = $row["email"];
-					echo "<tr><td>".$row["id"]."</td><td>".$row["fullname"]."</td><td><a href=tel:$phone>".$phone."</a></td><td>".$row["phonenumber2"]."</td><td class = 'addrs'>".$row["address"]."</td><td><a href='mailto:$email'>".$email."</a></td><td>".$row["info"]."</td><td>".$row["reg_date"]."</td></tr>";
+					echo "<tr>
+          <td>".$row["id"]."</td>
+          <td>".$row["fullname"]."</td>
+          <td><a href=tel:$phone>".$phone."</a></td>
+          <td>".$row["phonenumber2"]."</td>
+          <td class = 'addrs'>".$row["address"]."</td>
+          <td><a href='mailto:$email'>".$email."</a></td>
+          <td>".$row["info"]."</td>
+          <td>".$row["reg_date"]."</td>
+          </tr>";
 				}
 			}
 			else{
@@ -320,7 +428,7 @@ SQL;
 		}
 		else{
 			$sql = <<<SQL
-			SELECT * 
+			SELECT *
 			FROM $phonebook
 			ORDER BY info ASC
 SQL;
@@ -329,7 +437,16 @@ SQL;
 				while($row=$result->fetch_assoc()){
 					$phone = $row["phonenumber"];
 					$email = $row["email"];
-					echo "<tr><td>".$row["id"]."</td><td>".$row["fullname"]."</td><td><a href=tel:$phone>".$phone."</a></td><td>".$row["phonenumber2"]."</td><td class = 'addrs'>".$row["address"]."</td><td><a href='mailto:$email'>".$email."</a></td><td>".$row["info"]."</td><td>".$row["reg_date"]."</td></tr>";
+					echo "<tr>
+          <td>".$row["id"]."</td>
+          <td>".$row["fullname"]."</td>
+          <td><a href=tel:$phone>".$phone."</a></td>
+          <td>".$row["phonenumber2"]."</td>
+          <td class = 'addrs'>".$row["address"]."</td>
+          <td><a href='mailto:$email'>".$email."</a></td>
+          <td>".$row["info"]."</td>
+          <td>".$row["reg_date"]."</td>
+          </tr>";
 				}
 			}
 			else{
@@ -342,9 +459,9 @@ SQL;
 		if(isset($_POST["submitsearch"])){
 			$forsearch = safestrip($_POST["search"]);
 			$sql = <<< SQL
-			SELECT * 
-			FROM  $phonebook 
-			WHERE 
+			SELECT *
+			FROM  $phonebook
+			WHERE
 				fullname LIKE '%$forsearch%'
 			OR
 				phonenumber LIKE '%$forsearch%'
@@ -357,7 +474,16 @@ SQL;
 				while($row=$result->fetch_assoc()){
 					$phone = $row["phonenumber"];
 					$email = $row["email"];
-					echo "<tr><td>".$row["id"]."</td><td>".$row["fullname"]."</td><td><a href=tel:$phone>".$phone."</a></td><td>".$row["phonenumber2"]."</td><td class = 'addrs'>".$row["address"]."</td><td><a href='mailto:$email'>".$email."</a></td><td>".$row["info"]."</td><td>".$row["reg_date"]."</td></tr>";
+					echo "<tr>
+          <td>".$row["id"]."</td>
+          <td>".$row["fullname"]."</td>
+          <td><a href=tel:$phone>".$phone."</a></td>
+          <td>".$row["phonenumber2"]."</td>
+          <td class = 'addrs'>".$row["address"]."</td>
+          <td><a href='mailto:$email'>".$email."</a></td>
+          <td>".$row["info"]."</td>
+          <td>".$row["reg_date"]."</td>
+          </tr>";
 				}
 			}
 			else{
@@ -366,7 +492,7 @@ SQL;
 		}
 		else{
 			$sql = <<<SQL
-			SELECT * 
+			SELECT *
 			FROM $phonebook
 			ORDER BY reg_date DESC
 SQL;
@@ -375,7 +501,16 @@ SQL;
 				while($row=$result->fetch_assoc()){
 					$phone = $row["phonenumber"];
 					$email = $row["email"];
-					echo "<tr><td>".$row["id"]."</td><td>".$row["fullname"]."</td><td><a href=tel:$phone>".$phone."</a></td><td>".$row["phonenumber2"]."</td><td class = 'addrs'>".$row["address"]."</td><td><a href='mailto:$email'>".$email."</a></td><td>".$row["info"]."</td><td>".$row["reg_date"]."</td></tr>";
+					echo "<tr>
+          <td>".$row["id"]."</td>
+          <td>".$row["fullname"]."</td>
+          <td><a href=tel:$phone>".$phone."</a></td>
+          <td>".$row["phonenumber2"]."</td>
+          <td class = 'addrs'>".$row["address"]."</td>
+          <td><a href='mailto:$email'>".$email."</a></td>
+          <td>".$row["info"]."</td>
+          <td>".$row["reg_date"]."</td>
+          </tr>";
 				}
 			}
 			else{
@@ -387,13 +522,13 @@ SQL;
 	$sql = "SELECT * FROM $phonebook";
 	$result= $conn->query($sql);
 	if ($result) {
-		
+
 		if(isset($_POST["submitsearch"])){
 			$forsearch = safestrip($_POST["search"]);
 			$sql = <<< SQL
-			SELECT * 
-			FROM  $phonebook 
-			WHERE 
+			SELECT *
+			FROM  $phonebook
+			WHERE
 				fullname LIKE '%$forsearch%'
 			OR
 				phonenumber LIKE '%$forsearch%'
@@ -405,7 +540,16 @@ SQL;
 				while($row=$result->fetch_assoc()){
 					$phone = $row["phonenumber"];
 					$email = $row["email"];
-					echo "<tr><td>".$row["id"]."</td><td>".$row["fullname"]."</td><td><a href=tel:$phone>".$phone."</a></td><td>".$row["phonenumber2"]."</td><td class = 'addrs'>".$row["address"]."</td><td><a href='mailto:$email'>".$email."</a></td><td>".$row["info"]."</td><td>".$row["reg_date"]."</td></tr>";
+					echo "<tr>
+          <td>".$row["id"]."</td>
+          <td>".$row["fullname"]."</td>
+          <td><a href=tel:$phone>".$phone."</a></td>
+          <td>".$row["phonenumber2"]."</td>
+          <td class = 'addrs'>".$row["address"]."</td>
+          <td><a href='mailto:$email'>".$email."</a></td>
+          <td>".$row["info"]."</td>
+          <td>".$row["reg_date"]."</td>
+          </tr>";
 				}
 			}
 			else{
