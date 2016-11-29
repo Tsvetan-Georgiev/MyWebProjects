@@ -7,13 +7,30 @@
 	</title>
 	<meta name = "viewport" content="width = device-width, initial-scale = 1">
 	<link rel="icon" type="image/png" href="images/favicon.ico">
-	<link rel="stylesheet" type="text/css" href="index.css">
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="scripts/jquery-ui.css"> 
+	<link rel="stylesheet" type="text/css" href="scripts/jquery-ui.css">
 	<script type="text/javascript" src="scripts/external/jquery/jquery.js"></script>
 	<script type="text/javascript" src="scripts/jquery-ui.js"></script>
 	<script type="text/javascript" src="scripts/jquery.ui.datepicker-bg.js"></script>
 	<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+	<script>
+		 $(function() {
+		    $( "#dialog3" ).dialog({
+		      autoOpen: false,
+		      show: {
+		        effect: "clip",
+		        duration: 700
+		      },
+		      hide: {
+		        effect: "scale",
+		        duration: 700
+		      }
+		    });
+		    $( "#delete-res-open" ).click(function() {
+		      $( "#dialog3" ).dialog( "open" );
+		      });
+		    });
+	</script>
 	<script>
 		$(function() {
 			$( "#from" ).datepicker({
@@ -40,7 +57,8 @@
 		<?php
 			include_once("parts/menu.php");
 		?>
-							<?php 
+							<?php
+							// error_reporting(E_ALL);
 								$now = strtotime(date("Y-m-d"));
 								include_once "scripts/conn.php";
 								$q = <<<SQL
@@ -48,9 +66,9 @@
 									WHERE fromDate >= "$now"
 									OR toDate >= "$now";
 SQL;
-								$res_list = $conn -> query($q);
+								$res_list = $conn->query($q);
 								$res_future = array();
-								while($row = $res_list -> fetch_assoc()){
+								while($row = $res_list->fetch_assoc()){
 									$res_id = $row["ID"];
 									$res_number = $row["roomNumber"];
 									$res_from = $row["fromDate"];
@@ -99,7 +117,7 @@ SQL;
 						</label>
 						<hr>
 						<select class = "form-control  input-lg" id = "old-friends" name = "old-friends">
-							<?php 
+							<?php
 // option for the clients
 
 								include_once "scripts/conn.php";
@@ -138,7 +156,7 @@ SQL;
 						<div class = "col-md-6">
 							<hr>
 							<label for = "to">
-								
+
 								<p class = "lead">
 									До дата
 								</p>
@@ -177,16 +195,77 @@ SQL;
 							<input type = "number" class = "form-control input-lg" id = "price" placeholder = "Лева" min = "0" step = "any" name = "price">
 						<hr>
 					</div>
-					<button type = "submit" id = "button-res" class = "btn btn-default" name = "reservation" formmethod = "POST" form = "reservation">
-						<p class = "lead">
-							<span class="glyphicon glyphicon-ok"></span>
-							Резервация
-						</p>
-					</button>
-					<hr>
+						<div class = "col-md-4">
+							<button type = "submit" id = "button-res" class = "btn btn-default" name = "reservation" formmethod = "POST" form = "reservation">
+								<p class = "lead">
+									<span class="glyphicon glyphicon-ok"></span>
+									Резервация
+								</p>
+							</button>
+						</div>
 				</form>
+						<div class = "col-md-4">
+						</div>
+						<div class = "col-md-4">
+				        	<button id="delete-res-open" class = "btn btn-default">
+				        		<span class="glyphicon glyphicon-remove"></span>
+				        		Изтриване на резервация
+				        	</button>
+					    </div>
+					<hr>
+<!--изтриване на резервация-->
+				<div id = "dialog3" title = "Изтриване на резервация">
+				        <form role = "form" id = "delete-res" name = "delete-res" method = "POST">
+				          <div class = "form-group">
+				            <label for = "">Резервация за изтриване</label>
+				            <select type = "text" class = "form-control input-lg" id = "delete-res-choice" name = "delete-res-choice">
+				              <?php
+				                include_once "scripts/conn.php";
+				                	$q = <<<SQL
+					                   SELECT * FROM reservation
+										WHERE fromDate >= "$now"
+										OR toDate >= "$now";
+SQL;
+				                	$result = $conn->query($q);
+				                	if ($result->num_rows > 0) {
+				                		while($row = $result->fetch_assoc()){
+											$res_id = $row["ID"];
+											$res_number = $row["roomNumber"];
+											$res_from = $row["fromDate"];
+											$res_from = date("d-m-Y",$res_from);
+											$res_to = $row["toDate"];
+											$res_to = date("d-m-Y",$res_to);
+					                    	echo "<option value = '$res_id'>".$res_id.". стая ".$res_number."; от ".$res_from."; до ".$res_to."</option>";
+				                		}
+				                	}
+				                	else{
+				                		echo "<option value ='0'>Все още няма въведени резервации.</option>";
+				                	}
+				            	?>
+				        	</select>
+				        </div>
+				        	<button type = "submit" class = "btn btn-default" name = "delete-res" formmethod = "POST" form = "delete-res">
+				            	<p class = "lead">
+				            		<span class="glyphicon glyphicon-ok"></span>
+				            		Готово
+				            	</p>
+				        	</button>
+				        </form>
+				        <?php
 
-				<div id="dialog" title="Регистрацията завърши"  class = "col-md-12">
+				          if (isset($_POST["delete-res"])) {
+				            $res_id_delete = $_POST["delete-res-choice"];
+				            $q = <<< SQL
+				              DELETE FROM reservation
+				              WHERE ID = "$res_id_delete"
+SQL;
+				            $conn -> query($q);
+				            $conn -> close();
+				            echo '<script> location.replace("reservation.php"); </script>';
+				          }
+				        ?>
+				</div>
+<!--изтриване на резервация-->
 					<?php
 						if (isset($_POST['reservation'])) {
 							include "scripts/conn.php";
@@ -213,7 +292,7 @@ SQL;
 								// echo "<br>Стар клиент ".$old_friend;
 								$q = <<<SQL
 								UPDATE clients
-								SET 
+								SET
 									fromDate = "$res_from",
 									toDate = "$res_to"
 								WHERE ID ="$old_friend"
@@ -232,7 +311,7 @@ SQL;
 								$q = <<<SQL
 								SELECT ID FROM clients
 								WHERE ID = LAST_INSERT_ID();
-								
+
 SQL;
 								$old_friend = $conn -> query($q);
 								$old_friend = $old_friend -> fetch_assoc();
@@ -242,7 +321,7 @@ SQL;
 							$price = $_POST['price'];
 							// echo "<br> Пари ".$price;
 							$q = <<<SQL
-								INSERT INTO reservation 
+								INSERT INTO reservation
 								(price,roomNumber,clientNumber,fromDate,toDate)
 								VALUES
 								('$price','$room','$old_friend','$res_from','$res_to')
@@ -251,7 +330,7 @@ SQL;
 							$res_to = strtotime( date("Y-m-d",$res_to) . "+1 day");
 							//echo "dateToFree = ".$res_to;
 							$q = <<<SQL
-								UPDATE rooms 
+								UPDATE rooms
 								SET busy = '1', dateToFree = '$res_to'
 								WHERE ID = "$room"
 SQL;
@@ -288,12 +367,12 @@ SQL;
 			dateFrom = dateFrom.split(".");
 			dateFrom1 = dateFrom[2].concat(".",dateFrom[1],".",dateFrom[0]);// формат подходящ за unixtimestamp
 			dateFrom1 = new Date(dateFrom1).getTime() / 1000;//преобразуване към линуксвреме
-			dateFrom1 = dateFrom1 + 3600;
+			//dateFrom1 = dateFrom1 + 3600;
 			if (typeof dateTo !== 'undefined' && dateTo !== null && dateTo !== "") {//при въведена до дата преобразуване на до дата
 				dateTo = dateTo.split(".");
-				dateTo1 = dateTo[2].concat(".",dateTo[1],".",dateTo[0]); 
+				dateTo1 = dateTo[2].concat(".",dateTo[1],".",dateTo[0]);
 				dateTo1 = new Date(dateTo1).getTime() / 1000;
-				dateTo1 = dateTo1 + 3600
+				//dateTo1 = dateTo1 + 3600
 			};
 			for (var i = arrayOfBusyRooms.length - 1; i >= 0; i--) {//превъртане на бъдещите резервации
 				if (typeof arrayOfBusyRooms[i] !== 'undefined' && arrayOfBusyRooms[i] !== null) {//проверка на i елемент в масив със заети стаи
@@ -301,7 +380,7 @@ SQL;
 					roomNumber = room.substr(0,1);
 					room = room.split(",");
 					if (dateTo1 > 0) {
-						if (dateFrom1 >= room[1] && dateFrom1 <= room[2] || dateTo1 >= room[1] && dateTo1 <= room[2]) {// при въведени от-до дата влиза само ако има резервация в списъка и маха възможните стаи
+						if (dateFrom1 >= room[1] && dateFrom1 <= room[2] || dateTo1 >= room[1] && dateTo1 <= room[2] || dateFrom1 <= room[1] && dateTo1 >= room[2]) {// при въведени от-до дата влиза само ако има резервация в списъка и маха възможните стаи
 							for (var l = 0; l < roomNameArray.length; l++) {
 								var numberForDelete = roomNameArray[l];
 								numberForDelete = numberForDelete.substr(0,1);
