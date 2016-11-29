@@ -84,7 +84,7 @@
               Готово
             </p>
           </button>
-        </form>        
+        </form>
         <?php
           if (isset($_GET["add-room"])) {
             $room_title = $_GET["room-heading"];
@@ -92,7 +92,7 @@
             $room_beds = $_GET["num-beds"];
             include_once "scripts/conn.php";
             $q = <<< SQL
-              INSERT INTO rooms(title, floor, beds) 
+              INSERT INTO rooms(title, floor, beds)
               VALUES ('$room_title', '$room_floor', '$room_beds')
 SQL;
             $conn -> query($q);
@@ -139,12 +139,12 @@ SQL;
             </p>
           </button>
         </form>
-        <?php 
+        <?php
 
           if (isset($_GET["delete-room"])) {
             $room_id_delete = $_GET["delete-room-choice"];
             $q = <<< SQL
-              DELETE from rooms
+              DELETE FROM rooms
               WHERE ID = "$room_id_delete"
 SQL;
             $conn -> query($q);
@@ -184,7 +184,7 @@ SQL;
       <p class = "lead">
         Клиенти
       </p>
-    </div>  
+    </div>
 
     <hr>
     <div class = "row">
@@ -195,7 +195,7 @@ SQL;
 
       <div class = "col-md-4">
 
-        <button id="create-room" class = "btn btn-default">
+        <button id="edit-client" class = "btn btn-default">
           <span class="glyphicon glyphicon-pencil"></span>
           Редактиране име на клиент
         </button>
