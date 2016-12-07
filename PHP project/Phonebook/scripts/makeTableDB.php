@@ -1,6 +1,5 @@
-<?php 
+<?php
 include_once ("connect.php");
-include_once ("session.php");
 $user = $username;
 $user = $user."_phonebook";
 //sql to create table

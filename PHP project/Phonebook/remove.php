@@ -6,12 +6,11 @@ include_once ('parts/begin.php');
 		<?php
 			include_once ("nav.php");
 			include_once ("scripts/connect.php");
-			include_once ("scripts/session.php");
 		?>
 		<article>
 			<table class="table-hover">
 				<thead>
-						<?php 
+						<?php
 							if(isset($_GET['sent'])==NULL){
 							}
 							elseif(isset($_GET['sent'])){

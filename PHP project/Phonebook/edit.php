@@ -6,7 +6,6 @@ include_once ('parts/begin.php');
 		<?php
 			include_once ("nav.php");
 			include_once ("scripts/connect.php");
-			include_once ("scripts/session.php");
 		?>
 		<article>
 			<table class = "table-hover">

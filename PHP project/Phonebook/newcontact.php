@@ -6,10 +6,9 @@ include_once ('parts/begin.php');
 		<?php
 			include_once ("nav.php");
 			include_once ("scripts/connect.php");
-			include_once ("scripts/session.php");
 		?>
 		<article>
-			<?php 
+			<?php
 			if (loggedin()) {
 				if(isset($_GET['sent'])==NULL){
 				}
@@ -22,7 +21,7 @@ include_once ('parts/begin.php');
 			?>
 			<form name="new" action="scripts/insertDataDB.php" method="post" onsubmit="return validateForm()">
 				<fieldset>
-				<legend>Въведете новият контакт</legend>	
+				<legend>Въведете новият контакт</legend>
 					<label for="1">Имена:</label>
 							<br>
 						<input type="text" id = "1" class = "new_contact_inp" name="fullname" autofocus>
@@ -85,7 +84,7 @@ SQL;
 				                	else{
 				                		echo "<p style='color:red;'> Ориентирайте се към бутона за регистрация</p>";
 				                	}
-				            	}   
+				            	}
 				            }
 				         ?>
 						<label for="user">Поребител</label>

@@ -1,11 +1,12 @@
 <?php
-
+session_name("Phonebook");
+session_set_cookie_params(600, '/', 'localhost', false, true);
 session_start();
 // set time-out period (in seconds)
 
 $inactive = 600;
 
- 
+
 
 // check to see if $_SESSION["timeout"] is set
 

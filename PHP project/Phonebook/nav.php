@@ -24,7 +24,6 @@
 				</li>
 				<?php
 				include_once ('scripts/connect.php');
-				include_once ('scripts/session.php');
 					if(loggedin()){
 
 				?>
