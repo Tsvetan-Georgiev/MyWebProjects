@@ -7,7 +7,7 @@ include_once ('parts/begin.php');
 			include_once ("nav.php");
 		?>
 		<article>
-			<table class="table-hover">
+			<table class="table-hover table-responsive">
 				<thead>
 					<tr>
 						<td class = "col-md-6">
