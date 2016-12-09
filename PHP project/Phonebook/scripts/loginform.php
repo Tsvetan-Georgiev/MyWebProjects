@@ -28,7 +28,7 @@ SQL;
 						$run = mysqli_fetch_array($check_login,MYSQLI_ASSOC);
 						$user_id = $run['id'];
 						$_SESSION['user_id'] = $user_id;
-						echo '<script>window.location.reload()</script>';//header("Refresh: $sec; url=$page");
+						echo '<script>window.location.reload(true)</script>';//header("Refresh: $sec; url=$page");
 					}
 					else{
 						echo "<p style='color:red;'> Невярна парола или потребител</p>";
