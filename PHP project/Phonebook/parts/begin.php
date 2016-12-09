@@ -1,5 +1,6 @@
 <?php
 include_once ('scripts/session.php');
+$page = basename(__FILE__);
 ?>
 <!Doctype html>
 <html lang = "bg">
