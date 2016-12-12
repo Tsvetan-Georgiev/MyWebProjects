@@ -1,6 +1,7 @@
 <?php
 	include_once ('secure.php');
 	include_once ('connect.php');
+  include_once ('session.php');
 	$fullname=$phonenumber=$phonenumber2=$address=$email=$info="";
 	$fullname= safestrip($_POST["fullname"]);
 	$phonenumber= safestrip($_POST["phonenumber"]);
@@ -18,7 +19,7 @@
 	}
 	else{
 		echo "**** Error: ".$sql."<br>".$conn->error;
-		header("location: ../newcontact.php?sent=true");
+		header("location: ../newcontact.php?sent=false");
 	}
 
 	$conn->close();

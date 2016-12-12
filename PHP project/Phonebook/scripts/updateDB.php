@@ -1,6 +1,7 @@
 <?php
 	include_once ('connect.php');
 	include_once ('secure.php');
+  include_once ('session.php');
 	$phonebook = $_SESSION['username']."_phonebook";
 	$forUpdate=$_POST["forUpdate"];
 	$fullname=$phonenumber=$phonenumber2=$address=$email=$info="";

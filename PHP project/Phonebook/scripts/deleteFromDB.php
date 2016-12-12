@@ -1,5 +1,6 @@
 <?php
 	include_once('connect.php');
+  include_once ('session.php');
 	$phonebook = $_SESSION['username']."_phonebook";
 	$forDelete=$_POST["forRemove"];
 	if ($forDelete!=null) {
