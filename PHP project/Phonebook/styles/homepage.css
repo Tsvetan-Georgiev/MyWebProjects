@@ -1,1 +1,147 @@
-body,div,ul,li,a{margin:0;padding:0}html body{background-color:#fff1e0}html body div.container{font-family:Tahoma;margin:0;padding-left:0}html body div.container header{margin-top:3px}html body div.container header nav.navbar.navbar-inverse.navbar-fixed-top{background:none;position:fixed;top:2px;border:1px dotted #a9a9a9}html body div.container header nav.navbar.navbar-inverse.navbar-fixed-top div.container-fluid div.navbar-header:hover a{color:#98bf21}html body div.container header nav.navbar.navbar-inverse.navbar-fixed-top div.container-fluid ul.nav.navbar-nav li{background:#fff1e0;font-size:25px}html body div.container header nav.navbar.navbar-inverse.navbar-fixed-top div.container-fluid ul.nav.navbar-nav li:first-child{background:#fff1e0}html body div.container header nav.navbar.navbar-inverse.navbar-fixed-top div.container-fluid ul.nav.navbar-nav li a{text-decoration:none}html body div.container header nav.navbar.navbar-inverse.navbar-fixed-top div.container-fluid ul.nav.navbar-nav li a:visited{color:#000}html body div.container header nav.navbar.navbar-inverse.navbar-fixed-top div.container-fluid ul.nav.navbar-nav li a:link{color:#000}html body div.container header nav.navbar.navbar-inverse.navbar-fixed-top div.container-fluid ul.nav.navbar-nav li a:hover{color:#98bf21}html body div.container header nav.navbar.navbar-inverse.navbar-fixed-top div.container-fluid ul.nav.navbar-nav li.active a{background:#800080}html body div.container header nav.navbar.navbar-inverse.navbar-fixed-top div.container-fluid ul.nav.navbar-nav li.active a:visited{color:#98bf21}html body div.container header nav.navbar.navbar-inverse.navbar-fixed-top div.container-fluid ul.nav.navbar-nav li.active a:link{color:#98bf21}html body div.container header nav.navbar.navbar-inverse.navbar-fixed-top div.container-fluid ul.nav.navbar-nav li.active a:hover{background:#98bf21;color:#fff}html body div.container article{margin-top:55px;text-align:center}html body div.container article table.table-hover{border-collapse:collapse}html body div.container article table.table-hover thead tr{padding:5px}html body div.container article table.table-hover thead tr td{padding:5px}html body div.container article table.table-hover thead tr td h1{font-size:20px}html body div.container article table.table-hover tbody{border:1px solid #98bf21}html body div.container article table.table-hover tbody tr{padding:5px;border:1px solid #98bf21}html body div.container article table.table-hover tbody tr:nth-child(odd){background-color:#eaf2d3}html body div.container article table.table-hover tbody tr:first-child{background-color:#a7c942;color:#fff}html body div.container article table.table-hover tbody tr td{height:15px;padding:5px;border:1px solid #98bf21}html body div.container article table.table-hover tbody tr td a{text-decoration:none}html body div.container article table.table-hover tbody tr td a:visited{color:#000}html body div.container article table.table-hover tbody tr td a:link{color:#000}html body div.container article table.table-hover tbody tr td a:hover{color:#fff1e0}html body div.container article table.table-hover tfoot tr{padding:5px}html body div.container article table.table-hover tfoot tr td{padding:5px}input.cont_thead{margin:0 0;padding:9px 0;border-style:none;background:#a7c942;color:#fff;font-weight:bold;font-family:Tahoma;font-size:15px;width:100%;}input.cont_thead:focus{border-color:#a7c942}input.new_contact_inp{width:50%;height:20px;border-radius:3px}textarea.new_contact_inp{width:50%;height:40px;border-radius:3px}div.info_table{margin:0;border:1px solid #000;display:inline-block;max-height:40px;overflow-y:scroll}
+body,
+div,
+ul,
+li,
+a {
+  margin: 0;
+  padding: 0;
+}
+html body {
+  background-color: #fff1e0;
+}
+html body div.container {
+  font-family: Tahoma;
+  margin: 0;
+  padding-left: 0;
+}
+html body div.container header {
+  margin-top: 3px;
+}
+html body div.container header nav.navbar.navbar-inverse.navbar-fixed-top {
+  background: none;
+  position: fixed;
+  top: 2px;
+  border: 1px dotted darkgray;
+}
+html body div.container header nav.navbar.navbar-inverse.navbar-fixed-top div.container-fluid div.navbar-header:hover a {
+  color: #98BF21;
+}
+html body div.container header nav.navbar.navbar-inverse.navbar-fixed-top div.container-fluid ul.nav.navbar-nav li {
+  background: #FFF1E0;
+  font-size: 25px;
+}
+html body div.container header nav.navbar.navbar-inverse.navbar-fixed-top div.container-fluid ul.nav.navbar-nav li:first-child {
+  background: #FFF1E0;
+}
+html body div.container header nav.navbar.navbar-inverse.navbar-fixed-top div.container-fluid ul.nav.navbar-nav li a {
+  text-decoration: none;
+}
+html body div.container header nav.navbar.navbar-inverse.navbar-fixed-top div.container-fluid ul.nav.navbar-nav li a:visited {
+  color: black;
+}
+html body div.container header nav.navbar.navbar-inverse.navbar-fixed-top div.container-fluid ul.nav.navbar-nav li a:link {
+  color: black;
+}
+html body div.container header nav.navbar.navbar-inverse.navbar-fixed-top div.container-fluid ul.nav.navbar-nav li a:hover {
+  color: #98BF21;
+}
+html body div.container header nav.navbar.navbar-inverse.navbar-fixed-top div.container-fluid ul.nav.navbar-nav li.active a {
+  background: purple;
+}
+html body div.container header nav.navbar.navbar-inverse.navbar-fixed-top div.container-fluid ul.nav.navbar-nav li.active a:visited {
+  color: #98BF21;
+}
+html body div.container header nav.navbar.navbar-inverse.navbar-fixed-top div.container-fluid ul.nav.navbar-nav li.active a:link {
+  color: #98BF21;
+}
+html body div.container header nav.navbar.navbar-inverse.navbar-fixed-top div.container-fluid ul.nav.navbar-nav li.active a:hover {
+  background: #98BF21;
+  color: white;
+}
+html body div.container article {
+  margin-top: 55px;
+  text-align: center;
+}
+html body div.container article table.table-hover {
+  border-collapse: collapse;
+}
+html body div.container article table.table-hover thead tr {
+  padding: 5px;
+}
+html body div.container article table.table-hover thead tr td {
+  padding: 5px;
+}
+html body div.container article table.table-hover thead tr td h1 {
+  font-size: 20px;
+}
+html body div.container article table.table-hover tbody {
+  border: 1px solid #98BF21;
+}
+html body div.container article table.table-hover tbody tr {
+  padding: 5px;
+  border: 1px solid #98BF21;
+}
+html body div.container article table.table-hover tbody tr:nth-child(odd) {
+  background-color: #EAF2D3;
+}
+html body div.container article table.table-hover tbody tr:first-child {
+  background-color: #A7C942;
+  color: white;
+}
+html body div.container article table.table-hover tbody tr td {
+  height: 15px;
+  padding: 5px;
+  border: 1px solid #98BF21;
+}
+html body div.container article table.table-hover tbody tr td a {
+  text-decoration: none;
+}
+html body div.container article table.table-hover tbody tr td a:visited {
+  color: black;
+}
+html body div.container article table.table-hover tbody tr td a:link {
+  color: black;
+}
+html body div.container article table.table-hover tbody tr td a:hover {
+  color: #FFF1E0;
+}
+html body div.container article table.table-hover tfoot tr {
+  padding: 5px;
+}
+html body div.container article table.table-hover tfoot tr td {
+  padding: 5px;
+}
+input.cont_thead {
+  margin: 0 0;
+  padding: 9px 0;
+  border-style: none;
+  background: #A7C942;
+  color: white;
+  font-weight: bold;
+  font-family: Tahoma;
+  font-size: 15px;
+  width: 100%;
+}
+input.cont_thead:focus {
+  border-color: #A7C942;
+}
+input.new_contact_inp {
+  width: 50%;
+  height: 20px;
+  border-radius: 3px;
+}
+textarea.new_contact_inp {
+  width: 50%;
+  height: 40px;
+  border-radius: 3px;
+}
+div.info_table {
+  margin: 0;
+  border: 1px solid black;
+  display: inline-block;
+  max-height: 40px;
+  overflow-y: scroll;
+}
+td#align-top {
+  vertical-align: top;
+}
