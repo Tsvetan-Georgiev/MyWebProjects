@@ -28,7 +28,7 @@ include_once ('parts/begin.php');
 						</td>
 					</tr>
 					<tr>
-						<td>
+						<td id="align-top">
 							<form name="remove" action="scripts/deleteFromDB.php" method="post" onsubmit="return validateRemove()">
 								<label for="forRemove">Въведете номер за триене</label>
 								<input type="number" id="forRemove" name="forRemove" min="1" autofocus>

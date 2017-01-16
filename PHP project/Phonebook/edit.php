@@ -31,7 +31,7 @@ include_once ('parts/begin.php');
 						</td>
 					</tr>
 					<tr>
-						<td>
+						<td id="align-top">
 							<form name="edit" action="scripts/updateDB.php" method="post" onsubmit="return validateEdit()">
 								<fieldset>
 								<legend>Редактиране на контакт</legend>
