@@ -1,7 +1,7 @@
 <?php
 	include_once ('secure.php');
 	include_once ('connect.php');
-  include_once ('session.php');
+  	include_once ('session.php');
 	$fullname=$phonenumber=$phonenumber2=$address=$email=$info="";
 	$fullname= safestrip($_POST["fullname"]);
 	$phonenumber= safestrip($_POST["phonenumber"]);
@@ -9,6 +9,9 @@
 	$address= safestrip($_POST["address"]);
 	$email= safestrip($_POST["email"]);
 	$info= safestrip($_POST["info"]);
+
+
+
 	$phonebook = $_SESSION['username']."_phonebook";
 	$sql = "ALTER TABLE $phonebook AUTO_INCREMENT = 1;";
 	$sql.= "INSERT INTO $phonebook(fullname, phonenumber, phonenumber2, address, email, info)
@@ -20,7 +23,6 @@
 	else{
 		echo "**** Error: ".$sql."<br>".$conn->error;
 		header("location: ../newcontact.php?sent=false");
-	}
-
+}
 	$conn->close();
 ?>
